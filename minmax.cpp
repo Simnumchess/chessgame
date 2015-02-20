@@ -5,7 +5,9 @@ int generation
 
 
 
-int minmax(Position position){
+int minmax(Position position, int profondeur){
+
+if (profondeur<=0) return 0;
 
 if (position.getJoueur==fin_partie) return position.val_pos;
 
