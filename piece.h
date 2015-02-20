@@ -10,6 +10,21 @@ class TypePiece
 {
     public:
     TypePiece type;
+    enum couleur
+    {
+        blanc;
+        noir;
+    }
+    enum type
+    {
+        tour;
+        fou;
+        cavalier;
+        dame;
+        roi;
+        pion;
+    }
+    void print();
     int placementl;
     int placementc;
     bool deplacement(int l,int c);
@@ -20,9 +35,16 @@ class Piece
 {
     public:
     Piece type;
-    string *couleur;
+    enum type
+    {
+        croix;
+        rond;
+    }
+    enum couleur
+    {
+
+    }
     int **position;
-    void print();
     piece();
     piece & operator=(const piece &);
     ~piece();
