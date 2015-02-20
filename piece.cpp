@@ -2,48 +2,48 @@
 #include <stdlib.h>
 #include <piece.h>
 using namespace std;
-void piece::print()
+void TypePiece::print()
 {
     switch(type)
     {
         case pion:
         if(couleur==blanc)
-        cout<<"Pb";
-        else cout<<"Pn";
+        cout<<"Pb"<<" ";
+        else cout<<"Pn"<<" ";
         break;
 
         case tour:
         if(couleur==blanc)
-        cout<<"Tb";
-        else cout<<"Tn";
+        cout<<"Tb"<<" ";
+        else cout<<"Tn"<<" ";
         break;
 
         case cavalier:
         if(couleur==blanc)
-        cout<<"Cb";
-        else cout<<"Cn";
+        cout<<"Cb"<<" ";
+        else cout<<"Cn"<<" ";
         break;
 
         case fou:
         if(couleur==blanc)
-        cout<<"Fb";
-        else cout<<"Fn";
+        cout<<"Fb"<<" ";
+        else cout<<"Fn"<<" ";
         break;
 
         case dame:
         if(couleur==blanc)
-        cout<<"Db";
-        else cout<<"Dn";
+        cout<<"Db"<<" ";
+        else cout<<"Dn"<<" ";
         break;
 
         case roi:
         if(couleur==blanc)
-        cout<<"Rb";
-        else cout<<"Rn";
+        cout<<"Rb"<<" ";
+        else cout<<"Rn"<<" ";
         break;
 
         case piece_vide:
-        cout<<" ";
+        cout<<"  ";
         break;
     }
 }
