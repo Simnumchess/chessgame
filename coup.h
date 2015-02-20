@@ -7,9 +7,8 @@ class Coup
     piece piece_jouee;
     position pos_ancienne;
     position pos_nouvelle;
-    bool coup(echiquier e);
-    bool roque(echiquier e);
-
+    bool prise_de_piece;
+    enum coup_speciaux;
 
 };
 
