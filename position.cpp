@@ -25,7 +25,7 @@ position::val_pos_ordinateur()
         for(int c=0;c<8;c++)
         if(!(bool casevide(int l,int c)))
         {
-            if(ehcectab[l][c].couleur==noir)
+            if(echectab[l][c].couleur==noir)
             val_pos_ordinateur=val_pos_ordinateur+echectab[l][c].getvaleurpiece();
 
         }
