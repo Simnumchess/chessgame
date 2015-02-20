@@ -1,26 +1,28 @@
 #ifndef POSITION_H_INCLUDED
 #define POSITION_H_INCLUDED
 
-class Position
+class position
 {
     public:
 
-    Joueur getJoueur();
-    ~position ();
-    position();
-    int val_pos();
-
-    private:
-
+    enum Joueur
+    {
+        humain;
+        ordinateur;
+    }
+    int val_pos_humain();
+    int val_pos_ordinateur();
     int i;
     int j;
-    Joueur Joueur_pos;
     position *pos_soeur;
     position *pos_fille;
+    Joueur getJoueur();
 
+    ~position ();
 
 
 };
 
 
 #endif // POSITION_H_INCLUDED
+
