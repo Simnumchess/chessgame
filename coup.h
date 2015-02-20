@@ -1,6 +1,6 @@
 #ifndef COUP_H_INCLUDED
 #define COUP_H_INCLUDED
-class coup
+class Coup
 {
     public:
     couleur col;
