@@ -5,7 +5,7 @@ class echiquier
 {
     public:
     int dim;
-    piece **echiquier;
+    piece **echectab;
     bool casevide(int l,int c)
     void print();
     echiquier();
