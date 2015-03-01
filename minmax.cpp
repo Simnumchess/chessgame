@@ -5,7 +5,7 @@ int generation
 
 
 
-int minmax(Position position, int profondeur){
+int minmax(Position &position, int profondeur){
 
 if (profondeur<=0) return 0;
 
@@ -26,7 +26,7 @@ int min();
 int max();
 
 // variante alpha beta
-int alpha_beta(int profondeur,int alpha, int beta){
+int alpha_beta(Position &position, int profondeur,int alpha, int beta){
 
 }
 
