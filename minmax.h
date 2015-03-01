@@ -1,8 +1,12 @@
 #ifndef MINMAX_H_INCLUDED
 #define MINMAX_H_INCLUDED
 
-int minmax(Position &position, int profondeur); //minmax classique
+//minmax classique
+int minmax(Position &P, int profondeur);
+int min(Position &P, int profondeur);//min à l'interieur du minmax
+int max(Position &P, int profondeur);//max à l'interieur du minmax
 
-int alpha_beta(Position &position, int profondeur,int alpha, int beta); //variante alpha-beta
+//variante alpha-beta
+int alpha_beta(Position &position, int profondeur,int alpha, int beta); 
 
 #endif // MINMAX_H_INCLUDED
