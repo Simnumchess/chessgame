@@ -4,6 +4,22 @@
 
 using namespace std;
 
+Position::Position() // constructeur
+{
+
+*pos_soeur=0; // pointeur sur la position soeur
+*pos_fille=0; //pointeur sur la premiere position fille
+getJoueur="White";
+
+}
+
+position::~position() // destructeur
+{
+    if((pos_soeur!=NULL)||(pos_fille!=NULL))
+    delete []pos_fille;
+    delete []pos_soeur;
+}
+
 Joueur position::getJoueur()
 {
     if()
@@ -12,12 +28,6 @@ Joueur position::getJoueur()
     return ordinadeur;
 }
 
-position::~position()
-{
-    if((pos_soeur!=NULL)||(pos_fille!=NULL))
-    delete []pos_fille;
-    delete []pos_soeur;
-}
 position::val_pos_ordinateur()
 {
     for(int l=0; l<8; l++)
@@ -51,12 +61,5 @@ position::val_pos_humain()
 //classe abstraite position
 // classes filles position pour ttt et pour echecs
 
-Position::Position()
-{
 
-*m_position_soeur=0; // pointeur sur la position soeur
-*m_position_premiere_fille=0; //pointeur sur la premiere position fille
-m_joueur="White";
-
-}
 
