@@ -48,11 +48,14 @@ int minmax_min(Position &P, int profondeur){
   
   if (profondeur==0) return P.getvaleur;
   
-  int min(1000), a(0), b(10), c(0), i(0);
+  int min(1000), a(0), b(0), i(0);
   
   Position *F=P.getPositionFille()
   a=F[0].nbfilles;
   
+  for(i=0;i<a;i++){
+    
+  }
   
   return min;
 }
@@ -63,9 +66,13 @@ int minmax_max(Position &P, int profondeur){
   
   if(profondeur==0) return P.getvaleur;
   
-  int max(-1000), a(0), b(10), c(0), i(0);
+  int max(-1000), a(0), b(0), i(0);
   Position *F=P.getPositionFille()
   a=F[0].nbfilles;
+  
+  for(i=0;i<a;i++){
+    
+  }
 
   return max;
 }
