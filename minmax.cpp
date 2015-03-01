@@ -54,7 +54,11 @@ int minmax_min(Position &P, int profondeur){
   a=F[0].nbfilles;
   
   for(i=0;i<a;i++){
-    
+    b=minmax_max(F[i],profondeur-1);
+    if(b<=min){
+      min=b;
+      cout<<"Le min des positions filles est : "<<min<<endl;
+    }
   }
   
   return min;
@@ -71,7 +75,11 @@ int minmax_max(Position &P, int profondeur){
   a=F[0].nbfilles;
   
   for(i=0;i<a;i++){
-    
+    b=minmax_min(F[i],profondeur-1);
+    if(b>=max){
+      max=b;
+      cout<<"Le max des positions filles est : "<<max<<endl;
+    }
   }
 
   return max;
