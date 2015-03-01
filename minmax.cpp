@@ -5,28 +5,42 @@ int generation
 
 
 
-int minmax(Position &position, int profondeur){
+int minmax(Position &P, int profondeur){
+
+int a(0), i(0), b(0);
 
 if (profondeur<=0) return 0;
 
-if (position.getJoueur==fin_partie) return position.val_pos;
+Position *F=P.getPositionFille()
+a=F[0].nbfilles;
+cout <<"nombre de filles : "<<a<<endl;
 
-else if (position.getJoueur==humain) max();
+//C'est à l'ordinateur de jouer donc position.getJoueur vaut soit ordinateur soit fin_partie
 
-else if (position.getJoueur==ordinateur) min();
+if (P.getJoueur==fin_partie) return P.val_pos;
 
-else return 0;
+else if(P.getJoueur==ordinateur) 
+
+  for(i=0;i<a;i++){
+    b=Min(F[i],profondeur-1)
+    
+  }
+
+return 0;
+
 
 }
 
 
 
-int min();
+int min(Position &P, int profondeur);
 
-int max();
+int max(Position &P, int profondeur);
+
+
 
 // variante alpha beta
-int alpha_beta(Position &position, int profondeur,int alpha, int beta){
+int alpha_beta(Position &P, int profondeur,int alpha, int beta){
 
 }
 
