@@ -1,52 +1,22 @@
 #ifndef PIECE_H_INCLUDED
 #define PIECE_H_INCLUDED
 
-#include <iostream>
-#include <ostream>
-#include <stdlib.h>
-
+#include "definition.h"
 using namespace std;
-class TypePiece
-{
-    public:
-    TypePiece type;
-    enum couleur
-    {
-        blanc;
-        noir;
-    }
-    enum type
-    {
-        tour;
-        fou;
-        cavalier;
-        dame;
-        roi;
-        pion;
-    }
-    void print();
-    int placementl;
-    int placementc;
-    bool deplacement(int l,int c);
-    int val_piece;
-    int getvaleurpiece(int v);
-};
+
 class Piece
 {
     public:
-    Piece type;
-    enum type
-    {
-        croix;
-        rond;
-    }
-    enum couleur
-    {
-
-    }
-    int **position;
-    piece();
-    piece & operator=(const piece &);
-    ~piece();
+    type type_piece; //definition du type d'unr piece: {Roi, Dame, Tour, Cavalier, FOu, Pion, Piecevide}
+    couleur col; //definition du couleur d'une piece: {blanc, noir}
+    void print(); //print d'une piece selon son type
+    int placementl; //un deplacement relatif en ligne
+    int placementc; //un deplacement relatif en colone
+    bool deplacement(int l,int c); //regarde si on peut faire un deplacement
+    int val; //valeur d'une piece: val_roi=0; val_pion=v; val_reine=9*v; val_tour=5*v; val_fou=3*v; val_cavalier=3*v
+    int getvaleurpiece(int v); //renvoie la valeur d'une piece selon son type
+    piece(); //constructeur d'une piece
+    piece & operator=(const piece &); //operateur=
+    ~piece(); //destructeur d'une piece
 };
 #endif // PIECE_H_INCLUDED
