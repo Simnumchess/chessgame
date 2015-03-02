@@ -71,7 +71,8 @@ int minmax_max(Position_echecs &P, int profondeur){
   Position_echecs *F=P.getPositionFille()
   a=F[0].nbfilles;
   
-  for(i=0;i<a;i++){
+  for(i=0;i<a;i++)
+  {
     b=minmax_min(F[i],profondeur-1);
     if(b>=max){
       max=b;
@@ -85,7 +86,13 @@ int minmax_max(Position_echecs &P, int profondeur){
 
 
 // variante alpha beta
-int alpha_beta(Position_echecs &P, int profondeur,int alpha, int beta){
+/*
+consiste à stopper l'exploration d'une branche qd:
+à un niveau correspondant à une phase de maximisation, on trouve une valeur inférieur à une valeur minmax du niveau précédent
+-----------------------------------------minimisation-----------------------supérieure--------------------------
 
-}
+*/
+
+int minmax_alpha_beta(Position_echecs &P, int profondeur,int alpha, int beta)
+
 
