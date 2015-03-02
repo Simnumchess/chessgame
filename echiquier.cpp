@@ -151,7 +151,7 @@ echiquier::echiquier & operator=(const echiquier & Echec) //operator par copie
 }
 bool echiquier::casevide(int l,int c)
 {
-    if(echiquier[l][c]==piece_vide)
+    if(echiquier[l][c]==PV)
     return true;
     else
     return false;
