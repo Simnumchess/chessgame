@@ -10,4 +10,4 @@ int minmax_ab_min(Position_echecs &P, int profondeur);//min à l'interieur du mi
 int minmax_ab_max(Position_echecs &P, int profondeur);//max à l'interieur du minmax
 
 
-#endif // MINMAX_H_INCLUDED
+#endif // MINMAX_AB_H_INCLUDED
