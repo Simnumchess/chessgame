@@ -1,6 +1,7 @@
 #include "coup.h"
 #include <stdlib.h>
-#include <piece.h>
+#include "piece.h"
+using namespace std;
 
     coup::coup()
     {
@@ -27,3 +28,12 @@
     {
 
     }
+    
+bool coup::coup_possible(echiquier E)
+{
+    switch(piece_jouee.type_piece)
+    {
+        case Pion:
+        
+    }
+}
