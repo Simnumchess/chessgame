@@ -5,11 +5,10 @@ using namespace std;
 
 position_echec::~position_echec() // destructeur de toutes les positions filles d'une position
 {
-    if((pos_fille!=NULL))
+    if((pos_fille!=NULL)||(pos_soeur!==NULL))
     delete []pos_fille;
+    delete []pos_soeur;
 }
-
-
 double position_echec::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
 {
     int cont_ordinateur=0;
