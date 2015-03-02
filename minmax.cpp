@@ -7,7 +7,7 @@ int generation
 
 int minmax(Position_echecs &P, int profondeur){
 
-int a(0), b(0), i(0), max(-1000);
+int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
 if (profondeur<=0) return 0;
 
@@ -21,15 +21,14 @@ if (P.getJoueur==fin_partie) return P.val_pos;
 
 else if(P.getJoueur==ordinateur) 
 
-  for(i=0;i<a;i++){
-    
+  for(i=0;i<a;i++)
+  // on parcourt les positions filles, on applique minmax_min à leurs positions filles, et on prend le max
+  {
     b=minmax_min(F[i],profondeur-1);
     if(b>=max){
-      
       max=b;
       cout<<"Le max est : "<<max<<endl;
-      max_i=i;
-      
+      max_i=i;//indice du max
     }
     
   }
