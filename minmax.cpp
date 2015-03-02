@@ -5,13 +5,13 @@ int generation
 
 
 
-int minmax(Position &P, int profondeur){
+int minmax(Position_echecs &P, int profondeur){
 
 int a(0), b(0), i(0), max(-1000);
 
 if (profondeur<=0) return 0;
 
-Position *F=P.getPositionFille()
+Position_echecs *F=P.getPositionFille()
 a=F[0].nbfilles;
 cout <<"nombre de filles : "<<a<<endl;
 
@@ -43,14 +43,14 @@ return max_i;
 
 
 
-int minmax_min(Position &P, int profondeur){
+int minmax_min(Position_echecs &P, int profondeur){
   cout<<"fonction min du minmax"<<endl;
   
   if (profondeur==0) return P.getvaleur;
   
   int min(1000), a(0), b(0), i(0);
   
-  Position *F=P.getPositionFille()
+  Position_echecs *F=P.getPositionFille()
   a=F[0].nbfilles;
   
   for(i=0;i<a;i++){
@@ -65,13 +65,13 @@ int minmax_min(Position &P, int profondeur){
 }
 
 
-int minmax_max(Position &P, int profondeur){
+int minmax_max(Position_echecs &P, int profondeur){
   cout<<"fonction max du minmax"<<endl;
   
   if(profondeur==0) return P.getvaleur;
   
   int max(-1000), a(0), b(0), i(0);
-  Position *F=P.getPositionFille()
+  Position_echecs *F=P.getPositionFille()
   a=F[0].nbfilles;
   
   for(i=0;i<a;i++){
@@ -88,7 +88,7 @@ int minmax_max(Position &P, int profondeur){
 
 
 // variante alpha beta
-int alpha_beta(Position &P, int profondeur,int alpha, int beta){
+int alpha_beta(Position_echecs &P, int profondeur,int alpha, int beta){
 
 }
 
