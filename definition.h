@@ -11,4 +11,4 @@
 -enum couleur {blanc, noir};
 -
 -#endif // DEFINITION_H_INCLUDED
-kaeria
+//kaeria
