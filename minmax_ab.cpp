@@ -5,7 +5,7 @@
 // variante alpha beta
 /*
 consiste à stopper l'exploration d'une branche qd:
-à un niveau correspondant à une phase de maximisation, on trouve une valeur inférieur à une valeur minmax du niveau précédent
+à un niveau correspondant à une phase de maximisation, on trouve une valeur inférieure à une valeur minmax du niveau précédent
 -----------------------------------------minimisation-----------------------supérieure--------------------------
 
 */
@@ -47,7 +47,10 @@ return max_i;
 
 }
 
-
+/*
+minmax_min: on stoppe l'exploration qd
+à un niveau correspondant à une phase de minimisation, on trouve une valeur superieure à une valeur minmax du niveau précédent
+*/
 
 
 int minmax_ab_min(Position_echecs &P, int profondeur){
@@ -60,8 +63,8 @@ int minmax_ab_min(Position_echecs &P, int profondeur){
   Position_echecs *F=P.getPositionFille()
   a=F[0].nbfilles;
   
-  for(i=0;i<a;i++){
-    b=minmax_ab_max(F[i],profondeur-1);
+  for(i=0;i<a;i++){ //on parcourt toutes les positions filles
+    b=minmax_ab_max(F[i],profondeur-1); // on prend le min des minmax des filles
     if(b<=min){
       min=b;
       cout<<"Le min des positions filles est : "<<min<<endl;
