@@ -7,6 +7,10 @@
 class position_echec : class position
 {
     public:
+    coup coup_jouee; //
+    coup* coup_historique; //memprisation de l'historique des coups joues 
+    position_echec annul(); //annulation d'un coup
+    int resultat(); 
     position* pos_soeur; //un pointeur sur la position soeur
     position* pos_fille; //un pointeur sur la premiere position fille
     Joueur Jeu_pos; //un indicateur sur le joueur qui doit jouer cette position: {humain;ordinateur}
