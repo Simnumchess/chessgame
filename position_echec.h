@@ -1,12 +1,15 @@
 #ifndef POSITION_GLOBALE_H_INCLUDED
 #define POSITION_GLOBALE_H_INCLUDED
+#include "piece.h"
+#include "definition.h"
+#include "echiquier.h"
 class position_echec : class position
 {
     public:
     ~position_echec();
     double getvaleur() const;
 
-    position_echec();
+    position_echec(); //
     position_echec(const position_echec &)
 
     position_echec & operator=(const position_echec &)
