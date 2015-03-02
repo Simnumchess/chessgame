@@ -67,6 +67,26 @@ position_echec* position_echec::get_pos_suiv() const
         return pos_fille;
     }
 }
+position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
+{
+    int l1,l2,c1,c2=0;
+    //explorer les coups
+}
+position_echec position_echec::renouveler() //mise a jour de l'echiquier de reference apres les coups jouees
+{
+    //coup possible
+}
+
+int position_echec::val_position() const //tester si quelqu'un a gagne
+{
+    if(coup_jouee.piece_mangee.type_piece==ROi)
+    {
+        if(coup_jouee.piece_mangee.col==nor)
+        return maxi; //le humain gagne
+        else return mini; //l'ordinateur gagne
+    }
+    else return 0; //personne gagne, le jeu continue
+}
 
 void partie() //definition d'une partie
 {
