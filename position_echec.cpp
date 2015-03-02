@@ -71,6 +71,15 @@ position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
 {
     int l1,l2,c1,c2=0;
     //explorer les coups
+    coup cp=coup();
+    cp.piece_jouee=echiquier_ref[l1][c1];
+    cp.piece_mangee=echiauier_ref[l2][c2];
+    cp.ligne_init=l1;
+    cp.colone_init=c1;
+    cp.ligne_final=l2;
+    cp.colone_final=c2;
+    cp.col=echiquier_ref.echectab[l1][c1].col;
+    
 }
 position_echec position_echec::renouveler() //mise a jour de l'echiquier de reference apres les coups jouees
 {
