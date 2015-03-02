@@ -13,6 +13,7 @@ class position_echec : class position
     echiquier echiquier_ref; //definition d'un echiquier de reference(le dernier etat connu de l'echiquier)
     position_echec(); //constructeur d'une position
     double getvaleur() const; //renvoie la valeur d'une position
+    position_ehec* get_pos_suiv(); //constructeur de toutes les positions suivantes a une profondeur donnee
     
     position_echec(const position_echec &) //constructeur par copie
     position_echec & operator=(const position_echec &) //operateur =
