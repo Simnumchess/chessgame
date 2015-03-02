@@ -6,6 +6,9 @@
 class position_echec : class position
 {
     public:
+    position* pos_soeur; //un pointeur sur la position soeur
+    position* pos_fille; //un pointeur sur la premiere position fille
+    Joueur Jeu_pos; //un indicateur sur le joueur qui doit jouer cette position
     ~position_echec();
     double getvaleur() const;
 
