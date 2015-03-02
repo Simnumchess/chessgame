@@ -2,85 +2,85 @@
 #include <stdlib.h>
 #include <piece.h>
 using namespace std;
-void TypePiece::print()
+void Piece::print()
 {
     switch(type)
     {
-        case pion:
+        case Pion:
         if(couleur==blanc)
         cout<<"Pb"<<" ";
         else cout<<"Pn"<<" ";
         break;
 
-        case tour:
+        case Tour:
         if(couleur==blanc)
         cout<<"Tb"<<" ";
         else cout<<"Tn"<<" ";
         break;
 
-        case cavalier:
+        case Cavalier:
         if(couleur==blanc)
         cout<<"Cb"<<" ";
         else cout<<"Cn"<<" ";
         break;
 
-        case fou:
+        case Fou:
         if(couleur==blanc)
         cout<<"Fb"<<" ";
         else cout<<"Fn"<<" ";
         break;
 
-        case dame:
+        case Dame:
         if(couleur==blanc)
         cout<<"Db"<<" ";
         else cout<<"Dn"<<" ";
         break;
 
-        case roi:
+        case Roi:
         if(couleur==blanc)
         cout<<"Rb"<<" ";
         else cout<<"Rn"<<" ";
         break;
 
-        case piece_vide:
+        case PV:
         cout<<"  ";
         break;
     }
 }
-int TypePiece::getvaleurpiece(int v)
+int Piece::getvaleurpiece(int v)
 {
-    switch(piece)
+    switch(Piece)
     {
-        case pion:
+        case Pion:
         return v;
         break;
-        case tour:
+        case Tour:
         return 5*v;
         break:
-        case cavalier:
+        case Cavalier:
         return 3*v:
         break;
-        case fou:
+        case Fou:
         return 3*v;
         break;
-        case dame:
+        case Dame:
         return 9*v;
         break;
-        case roi:
+        case Roi:
         return 0;
         break;
-        case piece_vide:
+        case PV:
         return 0;
         break;
     }
 }
-bool TypePiece::deplacement(int l,int c)
+bool Piece::deplacement(int l,int c)
 {
-    int i=TypePiece.placementl;
-    int j=TypePiece.placementc;
-    switch(piece)
+    int i=Piece.placementl;
+    int j=Piece.placementc;
+    switch(Piece)
     {
-        case pion:
+        case Pion:
         {
             if(couleur==blanc)
             {
@@ -110,7 +110,7 @@ bool TypePiece::deplacement(int l,int c)
 
             }
         }
-        case tour:
+        case Tour:
         {
             if(j==c)
             {
@@ -131,7 +131,7 @@ bool TypePiece::deplacement(int l,int c)
                 }
             }
         }
-        case cavalier:
+        case Cavalier:
         {
             if((i==(l+1))&&(j==(c+2)))
             {
@@ -169,7 +169,7 @@ bool TypePiece::deplacement(int l,int c)
                 break;
             }
         }
-        case fou:
+        case Fou:
         {
             if(((i-l)==(j-c))||((i-l)==(c-j)))
             {
@@ -182,7 +182,7 @@ bool TypePiece::deplacement(int l,int c)
                 break;
             }
         }
-        case dame:
+        case Dame:
         {
             if(abs(i-l)==abs(j-c))
             {
@@ -208,7 +208,7 @@ bool TypePiece::deplacement(int l,int c)
                 }
             }
         }
-        case roi:
+        case Roi:
         {
             if(i==l+1)&&(j==c)
             {
@@ -247,20 +247,20 @@ bool TypePiece::deplacement(int l,int c)
                 break;
             }
         }
-        case piece_vide:
+        case PV:
         return false;
         break;
 
     }
-    piece & piece::operator=(const piece & p)
+    Piece & Piece::operator=(const Piece & p)
     {
         if(this==&p)
         return *this;
         else
         {
-            piece=p.piece;
+            Piece=p.Piece;
             couleur=p.couleur;
-            val_piece=p.val_piece;
+            val=p.val;
             placementl=p.placementl;
             placementc=p.placementc;
         }
