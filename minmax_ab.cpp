@@ -74,6 +74,10 @@ int minmax_ab_min(Position_echecs &P, int profondeur){
   return min;
 }
 
+/*
+minmax_max: on stoppe l'exploration qd
+à un niveau correspondant à une phase de maximisation, on trouve une valeur inferieure à une valeur minmax du niveau précédent
+*/
 
 int minmax_ab_max(Position_echecs &P, int profondeur){
   cout<<"fonction max du minmax"<<endl;
