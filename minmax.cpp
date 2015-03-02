@@ -1,7 +1,7 @@
 #include "minmax.h"
 #include "position_echecs.h"
 
-
+//rajouter double alpha, double beta
 
 int minmax(Position_echecs &P, int profondeur){
 
