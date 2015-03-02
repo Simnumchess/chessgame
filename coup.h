@@ -1,14 +1,23 @@
 #ifndef COUP_H_INCLUDED
 #define COUP_H_INCLUDED
-class Coup
+#include "piece.h"
+#include "echiquier.h"
+class coup
 {
     public:
+    
     couleur col;
     piece piece_jouee;
-    position pos_ancienne;
-    position pos_nouvelle;
-    bool prise_de_piece;
-    enum coup_speciaux;
+    piece piece_mangee;
+    
+    bool cou_possible(echiquier &); //explorer les coups possible en base des placements possibles
+    coup(); //initialisation d'un coup;
+    
+    position pos_ancienne; //l'ancienne position
+    position pos_nouvelle; //la nouvelle position
+    bool prise_de_piece(); //tester s'il y a prise de piece(un est mangee par l'autre)
+    enum coup_speciaux; //tout les coup speciaux
+    bool coup_special(); //tester si c'est un coup special
 
 };
 
