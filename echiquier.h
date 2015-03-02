@@ -5,15 +5,13 @@ class echiquier
 {
     public:
     int dim;
-    piece **echectab;
-    bool casevide(int l,int c)
+    piece **echectab; //le tableau 8*8 de pointeurs de pieces
+    bool casevide(int l,int c) //prend un case de coordonee (l,c) et ragarde si la case est vide
     void print();
-    echiquier();
-    echiquier(const echiquier &);
-    echiquier & operator=(const operator &);
-    ~echiquier();
-
-
+    echiquier(); //initialisation d'un echiquier
+    echiquier(const echiquier &); //operateur par copie
+    echiquier & operator=(const operator &); //operateur=
+    ~echiquier(); //destructeur d'un echiquier
 };
 
 
