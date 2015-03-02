@@ -1,5 +1,6 @@
 #include "echiquier.h"
 #include "piece.h"
+#include "definition.h"
 #include <iostream>
 
 
@@ -14,86 +15,88 @@ ehciquier::echiquier() //initialisation
         echectab[i]=new piece[8];
         {
             for(j=0;j<8;j++)
-            ehcectab[i][j]=piece_vide;
+            Piece PV;
+            PV.type=Piecevide;
+            ehcectab[i][j]=PV;
         }
     }
     for(int i=0;i<8;i++)
     {
-        TypePiece Pb;
+        Piece Pb;
         Pb.type=Pion;
-        Pb.val_piece=v;
+        Pb.val=v;
         Pb.couleur=blanc;
         echectab[1][i]=Pb;
 
-        TypePiece Pn;
+        Piece Pn;
         Pb.type=Pion;
-        Pb.val_piece=v;
+        Pb.val=v;
         Pb.couleur=noir;
         echectab[6][i]=Pn;
 
-        TypePiece Tb;
+        Piece Tb;
         Tb.type=tour;
-        Tb.val_piece=5*v;
+        Tb.val=5*v;
         Tb.couleur=blanc;
         echec[0][0]=Tb;
         echec[0][7]=Tb;
 
-        TypePiece Tn;
+        Piece Tn;
         Tn.type=tour;
-        Tn.val_piece=5*v;
+        Tn.val=5*v;
         Tn.couleur=noir;
         echec[7][0]=Tn;
         echec[7][7]=Tn;
 
-        TypePiece Cb;
+        Piece Cb;
         Cb.type=cavalier;
-        Cb.val_piece=3*v;
+        Cb.val=3*v;
         Cb.couleur=blanc;
         echec[0][1]=Cb;
         echec[0][6]=Cb;
 
-        TypePiece Cn;
+        Piece Cn;
         Cn.type=cavalier;
-        Cn.val_piece=3*v;
+        Cn.val=3*v;
         Cn.couleur=noir;
         echec[7][1]=noir;
         echec[7][6]=noir;
 
-        TypePiece Fb;
+        Piece Fb;
         Fb.type=fou;
-        Fb.val_piece=3*v;
+        Fb.val=3*v;
         Fb.couleur=blanc;
         echec[0][2]=Fb;
         echec[0][5]=Fb;
 
-        TypePiece Fn;
+        Piece Fn;
         Fn.type=fou;
-        Fn.val_piece=3*v;
+        Fn.val=3*v;
         Fn.couleur=noir;
         echec[7][2]=Fn;
         echec[7][5]=Fn;
 
-        TypePiece Db;
+        Piece Db;
         Db.type=dame;
-        Db.val_piece=9*v;
+        Db.val=9*v;
         Db.couleur=blanc;
         echec[0][3]=Db;
 
-        TypePiece Dn;
+        Piece Dn;
         Dn.type=dame;
-        Dn.val_piece=9*v;
+        Dn.val=9*v;
         Dn.couleur=noir;
         echec[7][3]=Dn;
 
-        TypePiece Rb;
+        Piece Rb;
         Rb.type=roi;
-        Rb.val_piece=0;
+        Rb.val=0;
         Rb.couleur=blanc;
         echec[0][4]=Rb;
 
-        TypePiece Rn;
+        Piece Rn;
         Rn.type=roi;
-        Rn.val_piece=0;
+        Rn.val=0;
         Rn.couleur=noir;
         echec[7][4]=Dn;
     }
@@ -114,7 +117,7 @@ void echiquier::print()
     for(int i=0;i<8;i++)
     {
         for(int j=0;j<8;j++)
-        TypePiece p;
+        Piece p;
         p=echectab[i][j];
         p.print();
     }
