@@ -1,8 +1,6 @@
 #include "minmax.h"
 #include "position_echecs.h"
 
-int generation
-
 
 
 int minmax(Position_echecs &P, int profondeur){
