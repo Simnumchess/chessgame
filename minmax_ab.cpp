@@ -15,6 +15,8 @@ consiste à stopper l'exploration d'une branche qd:
 
 int minmax_ab(Position_echecs &P, int profondeur){
 
+cout<<"variante alpha beta"<<endl;
+
 int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
 if (profondeur<=0) return 0;
