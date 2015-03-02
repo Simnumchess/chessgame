@@ -1,5 +1,12 @@
 #include "position.h"
+#include "position.cpp"
+#include "piece.h"
+#include "piece.cpp"
 #include "position_echec.h"
+#include "position_echec.cpp"
+#include "echiquier.h"
+#include "echiquier.cpp"
+#include <ostream>
 #include <iostream>
 using namespace std;
 
@@ -59,5 +66,13 @@ position_echec* position_echec::get_pos_suiv() const
         }
         return pos_fille;
     }
+}
+
+void partie() //definition d'une partie
+{
+    echiquier E; //definition d'un echiquier
+    E=echiquier(); //initiqlisqtion d'un echiquier
+    E.print();
+    
 }
 
