@@ -30,7 +30,7 @@ double position_echec::getvaleur(double alpha,double beta) const// la fonction q
     valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
     return valeur;
 }
-position_ehec* position_echec::get_pos-suiv() const
+position_echec* position_echec::get_pos_suiv() const
 {
     position_echec* pos_fille=new position_echec[100];
     if(Jeu_pos==humain) //si le humain joue
