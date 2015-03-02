@@ -74,5 +74,14 @@ void partie() //definition d'une partie
     E=echiquier(); //initiqlisqtion d'un echiquier
     E.print();
     
+    //coup possible pour le joueur humain
+    //coup joue par le joueur huamin
+    
+    //determiner le meilleur coup du joueur ordinateur(minmax)
+    //coup joue par le joueur ordinateur
+    position_echec pos_init=position_echec(E); //definition de la position de l'echiquier E
+    pos_init.Jeu_pos=humain;
+    
+    
 }
 
