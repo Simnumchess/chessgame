@@ -1,5 +1,5 @@
 #include "minmax.h"
-#include "position.h"
+#include "position_echecs.h"
 
 int generation
 
