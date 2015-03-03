@@ -48,14 +48,15 @@ void Piece::print()
         else cout<<"Rn"<<" ";
         break;
 
-        case PV:
+        case Piecevide:
         cout<<"  ";
         break;
     }
 }
-int Piece::getvaleurpiece(int v)
+int Piece::getvaleurpiece()
 {
-    switch(Piece)
+    int v; //on decide la valeur du v
+    switch(type_piece)
     {
         case Pion:
         return v;
@@ -75,16 +76,16 @@ int Piece::getvaleurpiece(int v)
         case Roi:
         return 0;
         break;
-        case PV:
+        case Piecevide:
         return 0;
         break;
     }
 }
-bool Piece::deplacement(int l,int c)
+bool Piece::deplacement(int l,int c) //(l,c) coordonnee de la piece temporaire
 {
-    int i=Piece.placementl;
-    int j=Piece.placementc;
-    switch(Piece)
+    int i=Piece.i;
+    int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
+    switch(type_piece)
     {
         case Pion:
         {
