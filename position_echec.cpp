@@ -16,6 +16,14 @@ position_echec::~position_echec() // destructeur de toutes les positions filles
 }
 double position_echec::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
 {
+    for(int i=0;i<8;i++)
+    {
+        for(int j=0;j<8;j++)
+        if(echectab[i][j].col==blanc)
+        val_pos_humain+=echectab[i][j].val;
+        else if(ehcectab[i][j].col==noir)
+        val_pos_ordinateur+=echectab[i][j].val;
+    }
     int cont_ordinateur=0;
     int cont_humain=0;
 
@@ -38,6 +46,7 @@ double position_echec::getvaleur(double alpha,double beta) const// la fonction q
 position_echec* position_echec::get_pos_suiv()
 {
     position_echec* pos_fille=new position_echec[100]; //un tableau de position fille
+    int n=0;
     if(Jeu_pos==humain) //si le humain joue
     {
         for(int l=0;l<8;l++)
@@ -46,8 +55,24 @@ position_echec* position_echec::get_pos_suiv()
             {
                 if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.ehectab[l][c].col==blanc))
                 //coup possible??
+                //class coup: piece_jouee;piece_mangee;coordonnee avant le coup;coordonnee apres le coup;bool coup_possible()
                 coup C;
                 C.piece_jouee=echiquier_ref.echectab[l][c];
+                C.piece_mangee=Piece() //piecevide
+                if(bool coup_possible(coup C)==true)
+                {
+                    pos_fille[n]=position_echec(*this);
+                    if(Jeu_pos==humain)
+                    {
+                        pos_fille[n].Jeu_pos==ordinateur;
+                    }
+                    else
+                    {
+                        pos_fille[n].Jeu_pos==humain;
+                    }
+                    n++;
+                }
+                
                 
                 
             }
@@ -61,12 +86,31 @@ position_echec* position_echec::get_pos_suiv()
             for(int c=0;c<8;c++)
             {
                 if((echiquier_ref.echectab[l][c]!=PV)&&(echiquier_ref.ehectab[l][c].col==noir))
-                coup possible??
+                //coup possible??
                 
             }
         }
         return pos_fille;
     }
+}
+int position_echec::resultat() const
+{
+    if(coup_joue.piece_mangee.type_piece==Roi)
+    {
+        if(coup_joue.piece_mangee.col==blanc)
+        {
+            
+            cout<<"You lose";
+            return mini;
+            else 
+            cout<<"You win";
+            return maxi;
+            
+        }
+    }
+    
+    else return 0;
+    cout<<"Please continue..."
 }
 position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
 {
@@ -82,21 +126,12 @@ position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
     cp.col=echiquier_ref.echectab[l1][c1].col;
     
 }
-position_echec position_echec::renouveler() //mise a jour de l'echiquier de reference apres les coups jouees
+position_echec position_echec::maj() //mise a jour de l'echiquier de reference apres les coups jouees
 {
     //coup possible
 }
 
-int position_echec::val_position() const //tester si quelqu'un a gagne
-{
-    if(coup_jouee.piece_mangee.type_piece==ROi)
-    {
-        if(coup_jouee.piece_mangee.col==nor)
-        return maxi; //le humain gagne
-        else return mini; //l'ordinateur gagne
-    }
-    else return 0; //personne gagne, le jeu continue
-}
+
 
 position_echec & position_echec::operator=(const position_echec & p) //operateur = pour une position_echec
 {
