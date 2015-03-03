@@ -1,16 +1,14 @@
 #include "position.h"
-#include "position.cpp"
 #include "piece.h"
-#include "piece.cpp"
 #include "position_echec.h"
-#include "position_echec.cpp"
 #include "echiquier.h"
-#include "echiquier.cpp"
+#include "coup.h"
+#include "minmax.h"
 #include <ostream>
 #include <iostream>
 using namespace std;
 
-position_echec::~position_echec() // destructeur de toutes les positions filles d'une position
+position_echec::~position_echec() // destructeur de toutes les positions filles
 {
     if((pos_fille!=NULL)||(pos_soeur!==NULL))
     delete []pos_fille;
@@ -37,17 +35,20 @@ double position_echec::getvaleur(double alpha,double beta) const// la fonction q
     valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
     return valeur;
 }
-position_echec* position_echec::get_pos_suiv() const
+position_echec* position_echec::get_pos_suiv()
 {
-    position_echec* pos_fille=new position_echec[100];
+    position_echec* pos_fille=new position_echec[100]; //un tableau de position fille
     if(Jeu_pos==humain) //si le humain joue
     {
         for(int l=0;l<8;l++)
         {
             for(int c=0;c<8;c++)
             {
-                if((echiquier_ref.echectab[l][c]!=PV)&&(echiquier_ref.ehectab[l][c].col==blanc))
-                coup possible??
+                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.ehectab[l][c].col==blanc))
+                //coup possible??
+                coup C;
+                C.piece_jouee=echiquier_ref.echectab[l][c];
+                
                 
             }
         }
@@ -97,6 +98,33 @@ int position_echec::val_position() const //tester si quelqu'un a gagne
     else return 0; //personne gagne, le jeu continue
 }
 
+position_echec & position_echec::operator=(const position_echec & p) //operateur = pour une position_echec
+{
+    if(this==&p) 
+    return *this;
+    else 
+    {
+        echiquier_ref=p.echiquier_ref;
+        coup_joue=p.coup_joue;
+        coup_historique=p.coup_historique;
+        pos_fille=p.pos_fille;
+        pos_soeur=p.pos_soeur;
+        return *this;
+    }
+}
+position_echec::position_echec(const position_echec & p) //operateur par copie
+{
+    echiquier_ref=p.echiquier_ref;
+    coup_joue=p.coup_joue;
+    coup_historique=p.coup_historique;
+    pos_fille=p.pos_fille;
+    pos_soeur=p.pos_soeur;
+    return *this;
+}
+position_echec::position_echec(echiquier E) //constructeur de la position initiale
+{
+    echiquier_ref=E;
+}
 void partie() //definition d'une partie
 {
     echiquier E; //definition d'un echiquier
