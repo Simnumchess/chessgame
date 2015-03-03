@@ -84,14 +84,14 @@ int Piece::getvaleurpiece()
 bool Piece::deplacement()
 {
     int l=Piece.deplacementl;
-    int c=Piece.deplacementc; //(l,c) deplacement relatif
+    int c=Piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
     int i=Piece.i;
     int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
     switch(type_piece)
     {
         case Pion:
         {
-            if(couleur==blanc)
+            if(couleur==noir)
             {
                 if((((i-1)==l)&&(j==c))||(((i-2)==l)&&(j==c)&&(i==6)))
                 {
@@ -104,7 +104,7 @@ bool Piece::deplacement()
                     break;
                 }
             }
-            else
+            else if(couleur==blanc)
             {
                 if((((i+1)==l)&&(j==c))||(((i+2)==l)&&(j==c)&&(i==1)))
                 {
@@ -256,31 +256,31 @@ bool Piece::deplacement()
                 break;
             }
         }
-        case PV:
-        return false;
-        break;
-
+        case Piecevide:
+        {
+            return false;
+            break;
+        }
     }
-    Piece & Piece::operator=(const Piece & p)
+    Piece & Piece::operator=(const Piece & P)
     {
-        if(this==&p)
+        if(this==&P)
         return *this;
         else
         {
-            Piece=p.Piece;
-            couleur=p.couleur;
-            val=p.val;
-            placementl=p.placementl;
-            placementc=p.placementc;
+            type_piece=P.type_piece;
+            col=P.col;
+            val=P.val;
+            i=P.i;
+            j=P.j;
+            placementl=P.placementl;
+            placementc=P.placementc;
         }
-    }
-    piece::~piece()
-    {
-
     }
     piece::piece()
     {
-
+        type_piece=Piecevide;
+        val=0;
     }
 
 }
