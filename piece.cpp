@@ -1,10 +1,16 @@
+#include "definition.h"
+#include "piece.h"
 #include <iostream>
+#include <ostream>
 #include <stdlib.h>
-#include <piece.h>
+#include <stdio.h>
+#include <math.h>
+
 using namespace std;
+
 void Piece::print()
 {
-    switch(type)
+    switch(type_piece)
     {
         case Pion:
         if(couleur==blanc)
