@@ -19,6 +19,5 @@ class Piece
     int getvaleurpiece(); //renvoie la valeur d'une piece selon son type
     piece(); //constructeur d'une piece
     piece & operator=(const piece &); //operateur=
-    ~piece(); //destructeur d'une piece
 };
 #endif // PIECE_H_INCLUDED
