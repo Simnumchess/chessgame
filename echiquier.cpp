@@ -2,13 +2,13 @@
 #include "piece.h"
 #include "definition.h"
 #include <iostream>
-
+#include <ostream>
 
 using namespace std;
 
 ehciquier::echiquier() //initialisation
 {
-    dim=8;
+    dim=8; //la dimension d'un echiquier
     echectab=new piece*[8];
     for(int i=0;i<8;i++)
     {
@@ -16,22 +16,20 @@ ehciquier::echiquier() //initialisation
         {
             for(j=0;j<8;j++)
             Piece PV;
-            PV.type=Piecevide;
+            PV.type_piece=Piecevide;
             ehcectab[i][j]=PV;
         }
     }
     for(int i=0;i<8;i++)
     {
         Piece Pb;
-        Pb.type=Pion;
-        Pb.val=v;
-        Pb.couleur=blanc;
+        Pb.type_piece=Pion;
+        Pb.col=blanc;
         echectab[1][i]=Pb;
 
         Piece Pn;
-        Pb.type=Pion;
-        Pb.val=v;
-        Pb.couleur=noir;
+        Pb.type_piece=Pion;
+        Pb.col=noir;
         echectab[6][i]=Pn;
 
         Piece Tb;
