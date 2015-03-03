@@ -81,8 +81,10 @@ int Piece::getvaleurpiece()
         break;
     }
 }
-bool Piece::deplacement(int l,int c) //(l,c) coordonnee de la piece temporaire
+bool Piece::deplacement()
 {
+    int l=Piece.deplacementl;
+    int c=Piece.deplacementc; //(l,c) deplacement relatif
     int i=Piece.i;
     int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
     switch(type_piece)
