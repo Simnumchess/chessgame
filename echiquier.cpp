@@ -33,69 +33,59 @@ ehciquier::echiquier() //initialisation
         echectab[6][i]=Pn;
 
         Piece Tb;
-        Tb.type=tour;
-        Tb.val=5*v;
-        Tb.couleur=blanc;
+        Tb.type_piece=Tour;
+        Tb.col=blanc;
         echec[0][0]=Tb;
         echec[0][7]=Tb;
 
         Piece Tn;
-        Tn.type=tour;
-        Tn.val=5*v;
-        Tn.couleur=noir;
+        Tn.type_piece=Tour;
+        Tn.col=noir;
         echec[7][0]=Tn;
         echec[7][7]=Tn;
 
         Piece Cb;
-        Cb.type=cavalier;
-        Cb.val=3*v;
-        Cb.couleur=blanc;
+        Cb.type_piece=Cavalier;
+        Cb.col=blanc;
         echec[0][1]=Cb;
         echec[0][6]=Cb;
 
         Piece Cn;
-        Cn.type=cavalier;
-        Cn.val=3*v;
-        Cn.couleur=noir;
+        Cn.type_piece=Cvalier;
+        Cn.col=noir;
         echec[7][1]=noir;
         echec[7][6]=noir;
 
         Piece Fb;
-        Fb.type=fou;
-        Fb.val=3*v;
-        Fb.couleur=blanc;
+        Fb.type_piece=Fou;
+        Fb.col=blanc;
         echec[0][2]=Fb;
         echec[0][5]=Fb;
 
         Piece Fn;
-        Fn.type=fou;
-        Fn.val=3*v;
-        Fn.couleur=noir;
+        Fn.type_piece=Fou;
+        Fn.col=noir;
         echec[7][2]=Fn;
         echec[7][5]=Fn;
 
         Piece Db;
-        Db.type=dame;
-        Db.val=9*v;
-        Db.couleur=blanc;
+        Db.type_piece=Dame;
+        Db.col=blanc;
         echec[0][3]=Db;
 
         Piece Dn;
-        Dn.type=dame;
-        Dn.val=9*v;
-        Dn.couleur=noir;
+        Dn.type_piece=Dame;
+        Dn.col=noir;
         echec[7][3]=Dn;
 
         Piece Rb;
-        Rb.type=roi;
-        Rb.val=0;
-        Rb.couleur=blanc;
+        Rb.type_piece=Roi;
+        Rb.col=blanc;
         echec[0][4]=Rb;
 
         Piece Rn;
-        Rn.type=roi;
-        Rn.val=0;
-        Rn.couleur=noir;
+        Rn.type_piece=Roi;
+        Rn.col=noir;
         echec[7][4]=Dn;
     }
 
@@ -115,9 +105,9 @@ void echiquier::print()
     for(int i=0;i<8;i++)
     {
         for(int j=0;j<8;j++)
-        Piece p;
-        p=echectab[i][j];
-        p.print();
+        Piece P;
+        P=echectab[i][j];
+        P.print();
     }
 
 }
@@ -149,7 +139,7 @@ echiquier::echiquier & operator=(const echiquier & Echec) //operator par copie
 }
 bool echiquier::casevide(int l,int c)
 {
-    if(echiquier[l][c]==PV)
+    if(echectab[l][c].type_piece==Piecevide)
     return true;
     else
     return false;
