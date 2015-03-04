@@ -13,7 +13,7 @@ consiste à stopper l'exploration d'une branche qd:
 
 //rajouter double alpha, double beta
 
-int minmax_ab(Position_echecs &P, int profondeur){
+int minmax_ab(position_echecs &P, int profondeur){
 
 cout<<"variante alpha beta"<<endl;
 
@@ -21,7 +21,7 @@ int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
 if (profondeur<=0) return 0;
 
-Position_echecs *F=P.getPositionFille()
+position_echecs *F=P.getPositionFille()
 a=F[0].nbfilles;
 cout <<"nombre de filles : "<<a<<endl;
 
@@ -55,7 +55,7 @@ minmax_min: on stoppe l'exploration qd
 */
 
 
-int minmax_ab_min(Position_echecs &P, int profondeur){
+int minmax_ab_min(position_echecs &P, int profondeur){
   cout<<"fonction min du minmax"<<endl;
   
   if (profondeur==0) return P.getvaleur;
@@ -81,7 +81,7 @@ minmax_max: on stoppe l'exploration qd
 à un niveau correspondant à une phase de maximisation, on trouve une valeur inferieure à une valeur minmax du niveau précédent
 */
 
-int minmax_ab_max(Position_echecs &P, int profondeur){
+int minmax_ab_max(position_echecs &P, int profondeur){
   cout<<"fonction max du minmax"<<endl;
   
   if(profondeur==0) return P.getvaleur;
@@ -101,9 +101,5 @@ int minmax_ab_max(Position_echecs &P, int profondeur){
 
   return max;
 }
-
-
-
-
 
 
