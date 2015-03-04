@@ -13,7 +13,7 @@ class ttt
     Piece **ttttab; //le tableau 3*3 de pointeurs de pieces
     bool casevide(int l,int c) //prend un case de coordonee (l,c) et ragarde si la case est vide
     void print(); //print un ttt
-    echiquier(); //initialisation d'un echiquier
+    ttt(); //initialisation d'un echiquier
     ttt(const ttt &); //operateur par copie
     ttt & operator=(const operator &); //operateur=
     ~ttt(); //destructeur d'un ttt
