@@ -4,6 +4,7 @@
 #include "definition.h"
 #include "echiquier.h"
 #include "coup.h"
+#include "position.h"
 
 class position_echecs : class position
 {
