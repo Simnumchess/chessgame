@@ -28,8 +28,8 @@ ehciquier::echiquier() //initialisation
         echectab[1][i]=Pb;
 
         piece Pn;
-        Pb.type_piece=Pion;
-        Pb.col=noir;
+        Pn.type_piece=Pion;
+        Pn.col=noir;
         echectab[6][i]=Pn;
 
         piece Tb;
