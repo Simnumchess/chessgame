@@ -3,7 +3,7 @@
 
 //rajouter double alpha, double beta
 
-int minmax(Position_echecs &P, int profondeur){
+int minmax(position_echecs &P, int profondeur){
 
 int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
@@ -40,7 +40,7 @@ return max_i;
 
 
 
-int minmax_min(Position_echecs &P, int profondeur){
+int minmax_min(position_echecs &P, int profondeur){
   cout<<"fonction min du minmax"<<endl;
   
   if (profondeur==0) return P.getvaleur;
@@ -62,7 +62,7 @@ int minmax_min(Position_echecs &P, int profondeur){
 }
 
 
-int minmax_max(Position_echecs &P, int profondeur){
+int minmax_max(position_echecs &P, int profondeur){
   cout<<"fonction max du minmax"<<endl;
   
   if(profondeur==0) return P.getvaleur;
@@ -83,15 +83,6 @@ int minmax_max(Position_echecs &P, int profondeur){
   return max;
 }
 
-
-
-// variante alpha beta
-/*
-consiste à stopper l'exploration d'une branche qd:
-à un niveau correspondant à une phase de maximisation, on trouve une valeur inférieur à une valeur minmax du niveau précédent
------------------------------------------minimisation-----------------------supérieure--------------------------
-
-*/
 
 int minmax_alpha_beta(Position_echecs &P, int profondeur,int alpha, int beta)
 
