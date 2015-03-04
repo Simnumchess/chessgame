@@ -1,6 +1,6 @@
 #include "position.h"
 #include "piece.h"
-#include "position_echec.h"
+#include "position_echecs.h"
 #include "echiquier.h"
 #include "coup.h"
 #include "minmax.h"
