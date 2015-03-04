@@ -3,15 +3,15 @@
 #include "piece.h"
 using namespace std;
 
-    Coup::Coup()
+    coup::coup()
     {
     }
     couleur col;
-    Piece piece_jouee;
-    Position pos_ancienne;
-    Position pos_nouvelle;
+    piece piece_jouee;
+    position pos_ancienne;
+    position pos_nouvelle;
     bool prise_de_piece;
-    enum Coup::coup_speciaux
+    enum coup::coup_speciaux
     {
         petit_roque;
         promotion;
@@ -20,16 +20,16 @@ using namespace std;
     }
 
 
-    Coup::~coup()
+    coup::~coup()
     {
 
     }
-    void Coup::print()
+    void coup::print()
     {
 
     }
     
-bool Coup::coup_possible(echiquier E)
+bool coup::coup_possible(echiquier E)
 {
     switch(piece_jouee.type_piece)
     {
