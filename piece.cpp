@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void Piece::print()
+void piece::print()
 {
     switch(type_piece)
     {
@@ -53,7 +53,7 @@ void Piece::print()
         break;
     }
 }
-int Piece::getvaleurpiece()
+int piece::getvaleurpiece()
 {
     int v; //on decide la valeur du v
     switch(type_piece)
@@ -81,12 +81,12 @@ int Piece::getvaleurpiece()
         break;
     }
 }
-bool Piece::deplacement()
+bool piece::deplacement()
 {
-    int l=Piece.deplacementl;
-    int c=Piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
-    int i=Piece.i;
-    int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
+    int l=piece.deplacementl;
+    int c=piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
+    int i=piece.i;
+    int j=piece.j; //(i,l) coordonnee de la piece apres deplacement
     switch(type_piece)
     {
         case Pion:
@@ -262,7 +262,7 @@ bool Piece::deplacement()
             break;
         }
     }
-    Piece & Piece::operator=(const Piece & P)
+    piece & piece::operator=(const piece & P)
     {
         if(this==&P)
         return *this;
