@@ -15,75 +15,75 @@ ehciquier::echiquier() //initialisation
         echectab[i]=new piece[8];
         {
             for(j=0;j<8;j++)
-            Piece PV;
+            piece PV;
             PV.type_piece=Piecevide;
             ehcectab[i][j]=PV;
         }
     }
     for(int i=0;i<8;i++)
     {
-        Piece Pb;
+        piece Pb;
         Pb.type_piece=Pion;
         Pb.col=blanc;
         echectab[1][i]=Pb;
 
-        Piece Pn;
+        piece Pn;
         Pb.type_piece=Pion;
         Pb.col=noir;
         echectab[6][i]=Pn;
 
-        Piece Tb;
+        piece Tb;
         Tb.type_piece=Tour;
         Tb.col=blanc;
         echec[0][0]=Tb;
         echec[0][7]=Tb;
 
-        Piece Tn;
+        piece Tn;
         Tn.type_piece=Tour;
         Tn.col=noir;
         echec[7][0]=Tn;
         echec[7][7]=Tn;
 
-        Piece Cb;
+        piece Cb;
         Cb.type_piece=Cavalier;
         Cb.col=blanc;
         echec[0][1]=Cb;
         echec[0][6]=Cb;
 
-        Piece Cn;
+        piece Cn;
         Cn.type_piece=Cvalier;
         Cn.col=noir;
         echec[7][1]=noir;
         echec[7][6]=noir;
 
-        Piece Fb;
+        piece Fb;
         Fb.type_piece=Fou;
         Fb.col=blanc;
         echec[0][2]=Fb;
         echec[0][5]=Fb;
 
-        Piece Fn;
+        piece Fn;
         Fn.type_piece=Fou;
         Fn.col=noir;
         echec[7][2]=Fn;
         echec[7][5]=Fn;
 
-        Piece Db;
+        piece Db;
         Db.type_piece=Dame;
         Db.col=blanc;
         echec[0][3]=Db;
 
-        Piece Dn;
+        piece Dn;
         Dn.type_piece=Dame;
         Dn.col=noir;
         echec[7][3]=Dn;
 
-        Piece Rb;
+        piece Rb;
         Rb.type_piece=Roi;
         Rb.col=blanc;
         echec[0][4]=Rb;
 
-        Piece Rn;
+        piece Rn;
         Rn.type_piece=Roi;
         Rn.col=noir;
         echec[7][4]=Dn;
