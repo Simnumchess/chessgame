@@ -4,7 +4,7 @@
 #include "definition.h"
 using namespace std;
 
-class Piece
+class piece
 {
     public:
     type type_piece; //definition du type d'unr piece: {Roi, Dame, Tour, Cavalier, FOu, Pion, Piecevide}
