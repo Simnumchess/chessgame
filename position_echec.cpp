@@ -8,13 +8,13 @@
 #include <iostream>
 using namespace std;
 
-position_echec::~position_echec() // destructeur de toutes les positions filles
+position_echecs::~position_echecs() // destructeur de toutes les positions filles
 {
     if((pos_fille!=NULL)||(pos_soeur!==NULL))
     delete []pos_fille;
     delete []pos_soeur;
 }
-double position_echec::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
+double position_echecs::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
 {
     for(int i=0;i<8;i++)
     {
@@ -43,9 +43,9 @@ double position_echec::getvaleur(double alpha,double beta) const// la fonction q
     valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
     return valeur;
 }
-position_echec* position_echec::get_pos_suiv()
+position_echecs* position_echecs::get_pos_suiv()
 {
-    position_echec* pos_fille=new position_echec[100]; //un tableau de position fille
+    position_echecs* pos_fille=new position_echecs[100]; //un tableau de position fille
     int n=0;
     if(Jeu_pos==humain) //si le humain joue
     {
@@ -93,7 +93,7 @@ position_echec* position_echec::get_pos_suiv()
         return pos_fille;
     }
 }
-int position_echec::resultat() const
+int position_echecs::resultat() const
 {
     if(coup_joue.piece_mangee.type_piece==Roi)
     {
@@ -112,7 +112,7 @@ int position_echec::resultat() const
     else return 0;
     cout<<"Please continue..."
 }
-position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
+position_echecs & position_echecs::explorer() //explorer 4 coups(2 par joueurs)
 {
     int l1,l2,c1,c2=0;
     //explorer les coups
@@ -126,14 +126,14 @@ position_echec & position_echec::explorer() //explorer 4 coups(2 par joueurs)
     cp.col=echiquier_ref.echectab[l1][c1].col;
     
 }
-position_echec position_echec::maj() //mise a jour de l'echiquier de reference apres les coups jouees
+position_echecs position_echecs::maj() //mise a jour de l'echiquier de reference apres les coups jouees
 {
     //coup possible
 }
 
 
 
-position_echec & position_echec::operator=(const position_echec & p) //operateur = pour une position_echec
+position_echecs & position_echecs::operator=(const position_echecs & p) //operateur = pour une position_echec
 {
     if(this==&p) 
     return *this;
@@ -147,7 +147,7 @@ position_echec & position_echec::operator=(const position_echec & p) //operateur
         return *this;
     }
 }
-position_echec::position_echec(const position_echec & p) //operateur par copie
+position_echecs::position_echecs(const position_echecs & p) //operateur par copie
 {
     echiquier_ref=p.echiquier_ref;
     coup_joue=p.coup_joue;
@@ -156,7 +156,7 @@ position_echec::position_echec(const position_echec & p) //operateur par copie
     pos_soeur=p.pos_soeur;
     return *this;
 }
-position_echec::position_echec(echiquier E) //constructeur de la position initiale
+position_echecs::position_echecs(echiquier E) //constructeur de la position initiale
 {
     echiquier_ref=E;
 }
@@ -171,7 +171,7 @@ void partie() //definition d'une partie
     
     //determiner le meilleur coup du joueur ordinateur(minmax)
     //coup joue par le joueur ordinateur
-    position_echec pos_init=position_echec(E); //definition de la position de l'echiquier E
+    position_echecs pos_init=position_echecs(E); //definition de la position de l'echiquier E
     pos_init.Jeu_pos=humain;
     
     
