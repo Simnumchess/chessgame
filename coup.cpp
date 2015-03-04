@@ -6,7 +6,7 @@ using namespace std;
     Coup::Coup()
     {
     }
-    Couleur col;
+    couleur col;
     Piece piece_jouee;
     Position pos_ancienne;
     Position pos_nouvelle;
