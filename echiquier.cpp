@@ -14,7 +14,7 @@ ehciquier::echiquier() //initialisation
     {
         echectab[i]=new piece[8];
         {
-            for(j=0;j<8;j++)
+            for(int j=0;j<8;j++)
             piece PV;
             PV.type_piece=Piecevide;
             ehcectab[i][j]=PV;
@@ -131,7 +131,7 @@ echiquier::echiquier & operator=(const echiquier & Echec) //operator par copie
     echectab=new piece*[8];
      for(int i=0;i<dim;i++)
     {
-        for(j=0;j<dim;j++)
+        for(int j=0;j<dim;j++)
         ehcectab[i][j]=Echec.echectab[i][j];
     }
     return *this;
