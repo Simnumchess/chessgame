@@ -1,5 +1,5 @@
-#ifndef POSITION_GLOBALE_H_INCLUDED
-#define POSITION_GLOBALE_H_INCLUDED
+#ifndef POSITION_ECHECS_H_INCLUDED
+#define POSITION_ECHECS_H_INCLUDED
 #include "piece.h"
 #include "definition.h"
 #include "echiquier.h"
@@ -30,5 +30,5 @@ void partie(); //definiton d'une partie
 
 
 
-#endif // POSITION_GLOBALE_H_INCLUDED
+#endif // POSITION_ECHECS_H_INCLUDED
 
