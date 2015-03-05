@@ -8,11 +8,11 @@ using namespace std;
 
 ttt::ttt() //initialisation
 {
-    dim=8; //la dimension d'un echiquier
+    dim=3; //la dimension d'un ttt
     ttttab=new piece*[3];
     for(int i=0;i<3;i++)
     {
-        echectab[i]=new piece[8];
+        ttttab[i]=new piece[8];
         {
             for(int j=0;j<8;j++)
             piece PV;
