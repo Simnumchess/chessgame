@@ -14,35 +14,9 @@ position_ttt::~position_ttt() // destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-double position_ttt::getvaleur() const// la fonction qui renvoie la valeur d'une position
-{
-    for(int i=0;i<3;i++)
-    {
-        for(int j=0;j<3;j++)
-        if(ttttab[i][j].col==blanc)
-        val_pos_humain+=ttttab[i][j].val;
-        else if(ttttab[i][j].col==noir)
-        val_pos_ordinateur+=ttttab[i][j].val;
-    }
-    int cont_ordinateur=0;
-    int cont_humain=0;
 
-    for(int l=0;l<8:l++)
-    {
-        for(int c=0;c<8:c++)
-        if(!(bool casevide(int l,int c)))&&(ehcectab[l][c].couleur==noir)
-        cont_ordinateur++;
-    }
-    for(int l=0;l<8:l++)
-    {
-        for(int c=0;c<8:c++)
-        if(!(bool casevide(int l,int c)))&&(ehcectab[l][c].couleur==blanc)
-        cont_humain++;
-    }
-    double valeur;
-    valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
-    return valeur;
-}
+
+
 position_ttt* position_ttt::get_pos_suiv()
 {
     position_ttt* pos_fille=new position_ttt[100]; //un tableau de position fille
@@ -92,8 +66,11 @@ position_ttt* position_ttt::get_pos_suiv()
         return pos_fille;
     }
 }
+
+
+
 int position_ttt::resultat() const
-{
+{// à refaire pour le ttt
     if(coup_joue.piece_mangee.type_piece==Roi)
     {
         if(coup_joue.piece_mangee.col==blanc)
@@ -111,6 +88,8 @@ int position_ttt::resultat() const
     else return 0;
     cout<<"Please continue..."
 }
+
+
 position_ttt & position_ttt::explorer() //explorer 4 coups(2 par joueurs)
 {
     int l1,l2,c1,c2=0;
@@ -124,6 +103,8 @@ position_ttt & position_ttt::explorer() //explorer 4 coups(2 par joueurs)
     cp.col=ttt_ref.ttttab[l1][c1].col;
     
 }
+
+
 position_ttt position_ttt::maj() //mise a jour de l'echiquier de reference apres les coups jouees
 {
     //coup possible
@@ -131,7 +112,7 @@ position_ttt position_ttt::maj() //mise a jour de l'echiquier de reference apres
 
 
 
-position_ttt & position_ttt::operator=(const position_ttt & p) //operateur = pour une position_echec
+position_ttt & position_ttt::operator=(const position_ttt & p) //operateur = pour une position_ttt
 {
     if(this==&p) 
     return *this;
@@ -154,22 +135,26 @@ position_ttt::position_ttt(const position_ttt & p) //operateur par copie
     pos_soeur=p.pos_soeur;
     return *this;
 }
+
+
 position_ttt::position_ttt(ttt E) //constructeur de la position initiale
 {
     ttt_ref=E;
 }
+
+
 void partie() //definition d'une partie
 {
-    ttt E; //definition d'un ttt
-    E=ttt(); //initiqlisqtion d'un ttt
-    E.print();
+    ttt TTT; //definition d'un ttt
+    TTT=ttt(); //initiqlisqtion d'un ttt
+    TTT.print();
     
     //coup possible pour le joueur humain
     //coup joue par le joueur huamin
     
     //determiner le meilleur coup du joueur ordinateur(minmax)
     //coup joue par le joueur ordinateur
-    position_ttt pos_init=position_ttt(E); //definition de la position de l'echiquier E
+    position_ttt pos_init=position_ttt(TTT); //definition de la position du ttt TTT
     pos_init.Jeu_pos=humain;
     
     
