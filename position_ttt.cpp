@@ -14,13 +14,13 @@ position_ttt::~position_ttt() // destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-double position_ttt::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
+double position_ttt::getvaleur() const// la fonction qui renvoie la valeur d'une position
 {
     for(int i=0;i<3;i++)
     {
         for(int j=0;j<3;j++)
         if(ttttab[i][j].col==blanc)
-        val_pos_humain+=echectab[i][j].val;
+        val_pos_humain+=ttttab[i][j].val;
         else if(ttttab[i][j].col==noir)
         val_pos_ordinateur+=ttttab[i][j].val;
     }
@@ -53,12 +53,11 @@ position_ttt* position_ttt::get_pos_suiv()
         {
             for(int c=0;c<8;c++)
             {
-                if((ttt_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.ehectab[l][c].col==blanc))
+                if((ttt_ref.ttttab[l][c]!=0)&&(echiquier_ref.ehectab[l][c].col==blanc))
                 //coup possible??
                 //class coup: piece_jouee;piece_mangee;coordonnee avant le coup;coordonnee apres le coup;bool coup_possible()
                 coup C;
                 C.piece_jouee=ttt_ref.ttttab[l][c];
-                C.piece_mangee=Piece() //piecevide
                 if(bool coup_possible(coup C)==true)
                 {
                     pos_fille[n]=position_ttt(*this);
@@ -85,7 +84,7 @@ position_ttt* position_ttt::get_pos_suiv()
         {
             for(int c=0;c<8;c++)
             {
-                if((echiquier_ref.ttttab[l][c]!=PV)&&(ttt_ref.ttttab[l][c].col==noir))
+                if(ttttab[l][c]!=0)
                 //coup possible??
                 
             }
@@ -118,7 +117,6 @@ position_ttt & position_ttt::explorer() //explorer 4 coups(2 par joueurs)
     //explorer les coups
     coup cp=coup();
     cp.piece_jouee=ttt_ref[l1][c1];
-    cp.piece_mangee=ttt_ref[l2][c2];
     cp.ligne_init=l1;
     cp.colone_init=c1;
     cp.ligne_final=l2;
