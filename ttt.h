@@ -10,7 +10,7 @@ class ttt
 {
     public:
     int dim;
-    Piece **ttttab; //le tableau 3*3 de pointeurs de int
+    int **ttttab; //le tableau 3*3 de pointeurs de int
     bool casevide(int l,int c) //prend un case de coordonee (l,c) et regarde si la case est vide
     void print(); //print un ttt
     ttt(); //initialisation d'un ttt
