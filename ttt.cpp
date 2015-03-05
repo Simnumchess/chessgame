@@ -12,7 +12,7 @@ ttt::ttt() //initialisation
     ttttab=new piece*[3];
     for(int i=0;i<3;i++)
     {
-        ttttab[i]=new piece[3];
+        ttttab[i]=new int[3];
         {
             for(int j=0;j<3;j++)
             ttttab[i][j]=0;
@@ -46,7 +46,7 @@ void ttt::print()
 ttt::ttt(const ttt & TTT) //constructeur par copie
 {
     dim=TTT.dim;
-    ttttab=new piece*[dim];
+    ttttab=new int*[dim];
     for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
@@ -61,7 +61,7 @@ ttt::ttt & operator=(const ttt & TTT) //operator par copie
     ttttab=NULL;
     if(dim<=0)
     return *this;
-    ttttab=new piece*[3];
+    ttttab=new int*[3];
      for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
