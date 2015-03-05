@@ -11,7 +11,7 @@ class ttt
     public:
     int dim;
     Piece **ttttab; //le tableau 3*3 de pointeurs de pieces
-    bool casevide(int l,int c) //prend un case de coordonee (l,c) et ragarde si la case est vide
+    bool casevide(int l,int c) //prend un case de coordonee (l,c) et regarde si la case est vide
     void print(); //print un ttt
     ttt(); //initialisation d'un ttt
     ttt(const ttt &); //operateur par copie
