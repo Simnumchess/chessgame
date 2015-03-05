@@ -38,9 +38,7 @@ void ttt::print()
     for(int i=0;i<3;i++)
     {
         for(int j=0;j<3;j++)
-        Piece P;
-        P=ttttab[i][j];
-        P.print();
+        cout<<ttttab[i][j]<<endl;
     }
 }
 
