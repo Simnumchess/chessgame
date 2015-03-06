@@ -66,7 +66,7 @@ else if(P.getJoueur==ordinateur)
   for(i=0;i<a;i++)
   // on parcourt les positions filles, on applique minmax_min à leurs positions filles, et on prend le max
   {
-    b=minmax_ab_min(F[i],profondeur-1);
+    b=minmax_ab_min(max,minmax_ab(F[i], profondeur-1, alpha, beta));
     if(b>=max){
       max=b;
       cout<<"Le max est : "<<max<<endl;
@@ -88,9 +88,9 @@ minmax_min: on stoppe l'exploration qd
 
 
 int minmax_ab_min(int a, int b){
-  cout<<"fonction min du minmax"<<endl;
-  
-  
+  int min=0;
+  if (a>b) min=b;
+  else min=a;
   return min;
 }
 
@@ -100,9 +100,9 @@ minmax_max: on stoppe l'exploration qd
 */
 
 int minmax_ab_max(int a, int b){
-  cout<<"fonction max du minmax"<<endl;
-  
-
+   int max=0;
+   if(a>b) max=a;
+   else max=b;
   return max;
 }
 
