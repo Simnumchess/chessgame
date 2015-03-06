@@ -98,7 +98,7 @@ minmax_min: on stoppe l'exploration qd
 */
 
 
-int minmax_ab_min(int a, int b){
+int Min(int a, int b){
   int min=0;
   if (a>b) min=b;
   else min=a;
@@ -110,7 +110,7 @@ minmax_max: on stoppe l'exploration qd
 à un niveau correspondant à une phase de maximisation, on trouve une valeur inferieure à une valeur minmax du niveau précédent
 */
 
-int minmax_ab_max(int a, int b){
+int Max(int a, int b){
    int max=0;
    if(a>b) max=a;
    else max=b;
