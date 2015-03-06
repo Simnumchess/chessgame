@@ -7,7 +7,7 @@ using namespace std;
 class piece
 {
     public:
-    type type_piece; //definition du type d'unr piece: {Roi, Dame, Tour, Cavalier, FOu, Pion, Piecevide}
+    type type_piece; //definition du type d'une piece: {Roi, Dame, Tour, Cavalier, FOu, Pion, Piecevide}
     couleur col; //definition du couleur d'une piece: {blanc, noir}
     void print(); //print d'une piece selon son type
     int placementl; //la position d'une piece en ligne apres un deplacement
