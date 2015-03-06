@@ -76,7 +76,7 @@ position_echecs* position_echecs::get_pos_suiv()
         {
             for(int c=0;c<8;c++)
             {
-                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.ehectab[l][c].col==blanc))
+                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.echectab[l][c].col==blanc))
                 //coup possible??
                 //class coup: piece_jouee;piece_mangee;coordonnee avant le coup;coordonnee apres le coup;bool coup_possible()
                 coup C;
