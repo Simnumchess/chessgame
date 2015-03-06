@@ -3,85 +3,82 @@
 #include "position_ttt.h"
 
 
-int minmax_ttt(Position_ttt &P, int profondeur){
+int algo_minmax_ttt(int position_ttt &P, int profondeur, int alpha, int beta){
+   
+   //On génere les positions filles (positions que peut jouer l'ordinateur)
+   position_ttt *F=P.getPositionFille()
+   int a=F[0].nbfilles;
+   cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
+   int max=-1000;
+   int indice_position_fille=0;
 
-int a(0), b(0), i(0), max(-1000);
+//C'est à l'ordinateur de jouer donc on prend le max des positions filles (positions que peut jouer l'ordinateur)
+   for(int i=0; i<a;i++){
+         int val=minmax_ab(F[i],profondeur,alpha,beta);
+         if(val>max){
+            max=val;
+            indice_position_fille=i;
+         }
+   }
+   
+   return indice_position_fille;
+   //maintenant il faut jouer cette position fille !
+}
 
-if (profondeur<=0) return 0;
 
-Position_ttt *F=P.getPositionFille()
-a=F[0].nbfilles;
-cout <<"nombre de filles : "<<a<<endl;
 
-//C'est à l'ordinateur de jouer donc position.getJoueur vaut soit ordinateur soit fin_partie
+int minmax(position_echecs &P, int profondeur, int alpha, int beta){
+
+cout<<"minmax classique"<<endl;
+
+if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
+
+
+if (profondeur==0) return P.val_pos;
+
+//On génere les positions filles
+position_echecs *F=P.getPositionFille()
+int a=F[0].nbfilles;
+
 
 if (P.getJoueur==fin_partie) return P.val_pos;
 
-else if(P.getJoueur==ordinateur) 
-
-  for(i=0;i<a;i++){
-    
-    b=minmax_ttt_min(F[i],profondeur-1);
-    if(b>=max){
-      
-      max=b;
-      cout<<"Le max est : "<<max<<endl;
-      max_i=i;
-      
-    }
-    
+else if(P.getJoueur==ordinateur)
+{ 
+  max=-1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
+  {
+      max=Max(max,minmax(F[i], profondeur-1, alpha, beta))
   }
-
-cout<<"la position fille à jouer est :"<<max_i<<endl
-
-return max_i;
+}
+else if (P.getJoueur==humain)
+{
+   min=1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
+  {
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
+  }
+}
 
 }
 
 
 
-
-int minmax_ttt_min(Position_ttt &P, int profondeur){
-  cout<<"fonction min du minmax"<<endl;
-  
-  if (profondeur==0) return P.getvaleur;
-  
-  int min(1000), a(0), b(0), i(0);
-  
-  Position_ttt *F=P.getPositionFille()
-  a=F[0].nbfilles;
-  
-  for(i=0;i<a;i++){
-    b=minmax_ttt_max(F[i],profondeur-1);
-    if(b<=min){
-      min=b;
-      cout<<"Le min des positions filles est : "<<min<<endl;
-    }
-  }
-  
+int Min(int a, int b){
+  int min=0;
+  if (a>b) min=b;
+  else min=a;
   return min;
 }
 
 
 
-int minmax_ttt_max(Position_ttt &P, int profondeur){
-  cout<<"fonction max du minmax"<<endl;
-  
-  if(profondeur==0) return P.getvaleur;
-  
-  int max(-1000), a(0), b(0), i(0);
-  Position_ttt *F=P.getPositionFille()
-  a=F[0].nbfilles;
-  
-  for(i=0;i<a;i++){
-    b=minmax_ttt_min(F[i],profondeur-1);
-    if(b>=max){
-      max=b;
-      cout<<"Le max des positions filles est : "<<max<<endl;
-    }
-  }
-
+int Max(int a, int b){
+   int max=0;
+   if(a>b) max=a;
+   else max=b;
   return max;
 }
+
 
 
