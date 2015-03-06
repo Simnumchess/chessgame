@@ -13,37 +13,37 @@ void piece::print()
     switch(type_piece)
     {
         case Pion:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Pb"<<" ";
         else cout<<"Pn"<<" ";
         break;
 
         case Tour:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Tb"<<" ";
         else cout<<"Tn"<<" ";
         break;
 
         case Cavalier:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Cb"<<" ";
         else cout<<"Cn"<<" ";
         break;
 
         case Fou:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Fb"<<" ";
         else cout<<"Fn"<<" ";
         break;
 
         case Dame:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Db"<<" ";
         else cout<<"Dn"<<" ";
         break;
 
         case Roi:
-        if(couleur==blanc)
+        if(color==blanc)
         cout<<"Rb"<<" ";
         else cout<<"Rn"<<" ";
         break;
@@ -63,9 +63,9 @@ int piece::getvaleurpiece()
         break;
         case Tour:
         return 5*v;
-        break:
+        break;
         case Cavalier:
-        return 3*v:
+        return 3*v;
         break;
         case Fou:
         return 3*v;
@@ -83,17 +83,18 @@ int piece::getvaleurpiece()
 }
 bool piece::deplacement()
 {
-    int l=piece.deplacementl;
-    int c=piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
-    int i=piece.i;
-    int j=piece.j; //(i,l) coordonnee de la piece apres deplacement
+    piece Piece;
+    int l=Piece.deplacementl;
+    int c=Piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
+    int i=Piece.i;
+    int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
     switch(type_piece)
     {
         case Pion:
         {
-            if(couleur==noir)
+            if(color==noir)
             {
-                if((((i-1)==l)&&(j==c))||(((i-2)==l)&&(j==c)&&(i==6)))
+                if( ( ((i-1)==l)&&(j==c) )||( ((i-2)==l)&&(j==c)&&(i==6) ) || ( ((i-1)==l)&&(j-1)==c) || ( ((i-1)==l)&&(j+1)==c))
                 {
                     return true;
                     break;
@@ -104,7 +105,7 @@ bool piece::deplacement()
                     break;
                 }
             }
-            else if(couleur==blanc)
+            else if(color==blanc)
             {
                 if((((i+1)==l)&&(j==c))||(((i+2)==l)&&(j==c)&&(i==1)))
                 {
@@ -219,33 +220,33 @@ bool piece::deplacement()
         }
         case Roi:
         {
-            if(i==l+1)&&(j==c)
+            if (i==l+1 && j==c)
             {
                 return true;
                 break;
             }
 
-            else if(i==l)&&(j==c+1)
+            else if (i==l && j==c+1)
             {
                 return true;
                 break;
             }
-            else if(i==l-1)&&(j==c+1)
+            else if (i==l-1 && j==c+1)
             {
                 return true;
                 break;
             }
-            else if(i==l+1)&&(j==c+1)
+            else if (i==l+1 && j==c+1)
             {
                 return true;
                 break;
             }
-            else if(i==l)&&(j==c)
+            else if (i==l && j==c)
             {
                 return true;
                 break;
             }
-            else if(i==l-1)&&(j==c)
+            else if (i==l-1 && j==c)
             {
                 return true;
                 break;
@@ -262,10 +263,10 @@ bool piece::deplacement()
             break;
         }
     }
-    piece & piece::operator=(const piece & P)
+
+    piece& piece::operator=(const piece & P)
     {
-        if(this==&P)
-        return *this;
+        if (this==&P) return *this;
         else
         {
             type_piece=P.type_piece;
@@ -273,10 +274,12 @@ bool piece::deplacement()
             val=P.val;
             i=P.i;
             j=P.j;
-            placementl=P.placementl;
-            placementc=P.placementc;
+            deplacementl=P.deplacementl;
+            deplacementc=P.deplacementc;
+            return *this;
         }
     }
+
     piece::piece()
     {
         type_piece=Piecevide;
