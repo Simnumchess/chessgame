@@ -8,10 +8,10 @@ class piece
 {
     public:
     type type_piece; //definition du type d'une piece: {Roi, Dame, Tour, Cavalier, FOu, Pion, Piecevide}
-    couleur col; //definition du couleur d'une piece: {blanc, noir}
+    couleur color; //definition du couleur d'une piece: {blanc, noir}
     void print(); //print d'une piece selon son type
-    int placementl; //la position d'une piece en ligne apres un deplacement
-    int placementc; //la posiiton d'une piece en colone apres un deplacement
+    int deplacementl; //la position d'une piece en ligne apres un deplacement
+    int deplacementc; //la posiiton d'une piece en colone apres un deplacement
     int i; //la position d'une piece en ligne
     int j; //la position d'une piece en colone
     bool deplacement(); //regarde si on peut faire un deplacement
