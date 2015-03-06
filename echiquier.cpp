@@ -9,12 +9,12 @@ using namespace std;
 ehciquier::echiquier() //initialisation
 {
     dim=8; //la dimension d'un echiquier
-    echectab=new piece*[8];
-    for(int i=0;i<8;i++)
+    echectab=new piece*[dim];
+    for(int i=0;i<dim;i++)
     {
-        echectab[i]=new piece[8];
+        echectab[i]=new piece[dim];
         {
-            for(int j=0;j<8;j++)
+            for(int j=0;j<dim;j++)
             piece PV;
             PV.type_piece=Piecevide;
             ehcectab[i][j]=PV;
@@ -94,20 +94,49 @@ echiquier::~echiquier()
 {
     if(echectab!=NULL)
     for(int i=0:i<8;i++)
-    {
-        delete []echectab[i];
-        for(int j=0;j<8;j++)
-        delete []echectab;
-    }
+    delete []echectab[i];
+    delete []echectab;
 }
 void echiquier::print()
 {
-    for(int i=0;i<8;i++)
+    char* echec_tab_indicel[8];
+    char* ehcec_tab_indicec[8];
+    echec_tab_indicel[0]='A';
+    echec_tab_indicel[1]='A';
+    echec_tab_indicel[2]='A';
+    echec_tab_indicel[3]='A';
+    echec_tab_indicel[4]='A';
+    echec_tab_indicel[5]='A';
+    echec_tab_indicel[6]='A';
+    echec_tab_indicel[7]='A';
+    
+    echec_tab_indicec[0]='1';
+    echec_tab_indicec[1]='2';
+    echec_tab_indicec[2]='3';
+    echec_tab_indicec[3]='4';
+    echec_tab_indicec[4]='5';
+    echec_tab_indicec[5]='6';
+    echec_tab_indicec[6]='7';
+    echec_tab_indicec[7]='8';
+    for(int i=0:i<dim;i++)
     {
-        for(int j=0;j<8;j++)
-        Piece P;
-        P=echectab[i][j];
-        P.print();
+        cout<<"  ";
+        cout<<echec_tab_indicel[k]<<"  ";
+        cout<<endl;
+    }
+    {
+        for(int i=0;i<dim,i++)
+        {
+            cout<<echec_tab_indicec[i]<<" ";
+            for(int j=0;j<8;j++)
+            {
+                Piece P;
+                P=echectab[i][j];
+                P.print(); 
+                
+            }
+            cout<<echec_tab_indice[i]<<endl;
+        }
     }
 
 }
