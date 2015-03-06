@@ -1,4 +1,3 @@
-
 #include "minmax_ab.h"
 #include "position_echecs.h"
 
@@ -44,17 +43,20 @@ int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta){
 
 cout<<"variante alpha beta"<<endl;
 
+if(profondeur<0) cout<<"probleme avec la profondeur"<<endl;
+
 if (alpha>beta)
 {
    cout<<"alpha doit être inférieur à beta"<<endl;
 }
 
-int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
-if (profondeur<=0) return 0;
+if (profondeur==0) return P.val_pos;
+
+int val=0;
 
 position_echecs *F=P.getPositionFille()
-a=F[0].nbfilles;
+int a=F[0].nbfilles;
 cout <<"nombre de filles : "<<a<<endl;
 
 //C'est à l'ordinateur de jouer donc position.getJoueur vaut soit ordinateur soit fin_partie
@@ -62,18 +64,27 @@ cout <<"nombre de filles : "<<a<<endl;
 if (P.getJoueur==fin_partie) return P.val_pos;
 
 else if(P.getJoueur==ordinateur)
-
-  for(i=0;i<a;i++)
-  // on parcourt les positions filles, on applique minmax_min à leurs positions filles, et on prend le max
+{ 
+  max=-1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
   {
-    b=minmax_ab_min(max,minmax_ab(F[i], profondeur-1, alpha, beta));
-    if(b>=max){
-      max=b;
-      cout<<"Le max est : "<<max<<endl;
-      max_i=i;//indice du max
-    }
-    
+      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta))
+      if (max>=beta) return max; //coupure beta
+      else alpha=Max(alpha,max);
   }
+}
+else if (P.getJoueur==humain)
+{
+   min=1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
+  {
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
+      if (min<=beta) return min; //coupure alpha
+      else beta=Min(beta,min);
+  }
+}
+
+
 
 cout<<"la position fille à jouer est :"<<max_i<<endl
 
@@ -105,5 +116,4 @@ int minmax_ab_max(int a, int b){
    else max=b;
   return max;
 }
-
 
