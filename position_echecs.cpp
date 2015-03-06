@@ -8,6 +8,8 @@
 #include <iostream>
 using namespace std;
 
+
+
 int position_echec::val_pos_ordinateur()
 {
     for(int l=0; l<8; l++)
@@ -45,7 +47,9 @@ position_echecs::~position_echecs() // destructeur de toutes les positions fille
     delete []pos_fille;
     delete []pos_soeur;
 }
-double position_echecs::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
+
+
+double position_echecs::getvaleur(int alpha,int beta) const// la fonction qui renvoie la valeur d'une position
 {
     int cont_ordinateur=0;
     int cont_humain=0;
@@ -66,6 +70,8 @@ double position_echecs::getvaleur(double alpha,double beta) const// la fonction 
     valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
     return valeur;
 }
+
+
 position_echecs* position_echecs::get_pos_suiv()
 {
     position_echecs* pos_fille=new position_echecs[100]; //un tableau de position fille
