@@ -35,12 +35,43 @@ ttt::~ttt()
 
 void ttt::print()
 {
-    for(int i=0;i<3;i++)
+    char* ttt_tab_indicel[3];
+    char* ehcec_tab_indicec[3];
+    ttt_tab_indicel[0]='A';
+    ttt_tab_indicel[1]='B';
+    ttt_tab_indicel[2]='C';
+
+    ttt_tab_indicec[0]='1';
+    ttt_tab_indicec[1]='2';
+    ttt_tab_indicec[2]='3';
+
+    for(int i=0:i<dim;i++) //premiere ligne : les indices lettres
     {
-        for(int j=0;j<3;j++)
-        cout<<ttttab[i][j]<<endl; // Comment on fait pour sauter une ligne ? Automatique ?
+        cout<<"  ";
+        cout<<ttt_tab_indicel[k]<<"  ";
+        cout<<endl;
+    }
+    {
+        for(int i=0;i<dim,i++) //on parcourt les colonnes
+        {
+            cout<<ttt_tab_indicec[i]<<" ";
+            for(int j=0;j<3;j++)
+            {
+                int P=ttttab[i][j];//i=ligne, j=colonnne ??
+                P.print(); 
+                
+            }
+            cout<<ttt_tab_indicec[i]<<endl; //derniere ligne : les indices lettres
+        }
+    }
+    for(int i=0:i<dim;i++)
+    {
+        cout<<"  ";
+        cout<<ttt_tab_indicel[k]<<"  ";
+        cout<<endl;
     }
 }
+
 
 
 ttt::ttt(const ttt & TTT) //constructeur par copie
