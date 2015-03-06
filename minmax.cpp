@@ -33,27 +33,43 @@ fin
 
 
 
+int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
+   
+   //On génere les positions filles (positions que peut jouer l'ordinateur)
+   position_echecs *F=P.getPositionFille()
+   int a=F[0].nbfilles;
+   cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
+   int max=-1000;
+   int indice_position_fille=0;
+
+//C'est à l'ordinateur de jouer donc on prend le max des positions filles (positions que peut jouer l'ordinateur)
+   for(int i=0; i<a;i++){
+         int val=minmax_ab(F[i],profondeur,alpha,beta);
+         if(val>max){
+            max=val;
+            indice_position_fille=i;
+         }
+   }
+   
+   return indice_position_fille;
+   //maintenant il faut jouer cette position fille !
+}
+
+
+
 int minmax(position_echecs &P, int profondeur, int alpha, int beta){
 
-cout<<"variante alpha beta"<<endl;
+cout<<"minmax classique"<<endl;
 
-if(profondeur<0) cout<<"probleme avec la profondeur"<<endl;
-
-if (alpha>beta)
-{
-   cout<<"alpha doit être inférieur à beta"<<endl;
-}
+if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 
 
 if (profondeur==0) return P.val_pos;
 
-int val=0;
-
+//On génere les positions filles
 position_echecs *F=P.getPositionFille()
 int a=F[0].nbfilles;
-cout <<"nombre de filles : "<<a<<endl;
 
-//C'est à l'ordinateur de jouer donc position.getJoueur vaut soit ordinateur soit fin_partie
 
 if (P.getJoueur==fin_partie) return P.val_pos;
 
@@ -73,12 +89,6 @@ else if (P.getJoueur==humain)
       min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
   }
 }
-
-
-
-cout<<"la position fille à jouer est :"<<max_i<<endl
-
-return max_i;
 
 }
 
