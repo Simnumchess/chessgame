@@ -263,14 +263,14 @@ bool piece::deplacement()
             break;
         }
     }
-
-    piece& piece::operator=(const piece & P)
-    {
+}
+piece& piece::operator=(const piece & P)
+{
         if (this==&P) return *this;
         else
         {
             type_piece=P.type_piece;
-            col=P.col;
+            color=P.color;
             val=P.val;
             i=P.i;
             j=P.j;
@@ -278,15 +278,13 @@ bool piece::deplacement()
             deplacementc=P.deplacementc;
             return *this;
         }
-    }
+}
 
-    piece::piece()
+piece::piece()
     {
         type_piece=Piecevide;
         val=0;
     }
-
-}
 
 
 
