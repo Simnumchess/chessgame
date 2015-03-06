@@ -13,6 +13,8 @@ class position_echecs : class position
     coup* coup_historique; //memorisation de l'historique des coups joues 
     coup annul_coup(); //annulation d'un coup??
     int resultat(); //regarde si un joueur a gagne
+    int val_pos_ordinateur(); //renvoie la valeur de la position de l'ordinateur
+    int val_pos_humain(); //renvoir la valeur de la position du huamin
     position* pos_soeur; //un pointeur sur la position soeur
     position* pos_fille; //un pointeur sur la premiere position fille
     Joueur Jeu_pos; //un indicateur sur le joueur qui doit jouer cette position: {humain;ordinateur}
