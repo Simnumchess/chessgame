@@ -102,13 +102,13 @@ void echiquier::print()
     char* echec_tab_indicel[8];
     char* ehcec_tab_indicec[8];
     echec_tab_indicel[0]='A';
-    echec_tab_indicel[1]='A';
-    echec_tab_indicel[2]='A';
-    echec_tab_indicel[3]='A';
-    echec_tab_indicel[4]='A';
-    echec_tab_indicel[5]='A';
-    echec_tab_indicel[6]='A';
-    echec_tab_indicel[7]='A';
+    echec_tab_indicel[1]='B';
+    echec_tab_indicel[2]='C';
+    echec_tab_indicel[3]='D';
+    echec_tab_indicel[4]='E';
+    echec_tab_indicel[5]='F';
+    echec_tab_indicel[6]='G';
+    echec_tab_indicel[7]='H';
     
     echec_tab_indicec[0]='1';
     echec_tab_indicec[1]='2';
