@@ -8,7 +8,7 @@
 #include <iostream>
 using namespace std;
 
-position_echec::val_pos_ordinateur()
+int position_echec::val_pos_ordinateur()
 {
     for(int l=0; l<8; l++)
     {
@@ -22,7 +22,7 @@ position_echec::val_pos_ordinateur()
     }
     return val_pos_ordinateur;
 }
-position_echec::val_pos_humain()
+int position_echec::val_pos_humain()
 {
     for(int l=0; l<8; l++)
     {
@@ -182,6 +182,44 @@ position_echecs::position_echecs(const position_echecs & p) //operateur par copi
 position_echecs::position_echecs(echiquier E) //constructeur de la position initiale
 {
     echiquier_ref=E;
+}
+position_ehcec & position_echec::IA()
+{
+    int l1,c1,l2,c2=0;
+    cout<<"Choisissez la piece..."<<endl;
+    cout<<"ligne=?"<<endl;
+    cin>>l1;
+    cout<<"colone=?";
+    cin>>c1;
+    cout<<"Choisissez la case que vous voulez aller a"<<endl;
+    cout<<"ligne=?"<<endl;
+    cin>>l2;
+    cout<<"colone=?"<<endl;
+    cin>>c2;
+    
+    coup cp=coup();
+    cp.piece_jouee=echiquier_ref.echectab[l1][c1];
+    cp.piece_mangee=echiquier_ref.echectab[l2][c2];
+    
+    if(cp.coup_possible(echiquier_ref)==false)
+    {
+        cout<<"coup pas possible"<<endl;
+        return IA();
+    }
+    else
+    {
+        coup_jouee=cp;
+    }
+    for(int i=0;i<40;i++)
+    {
+        if(historique[i].piece_jouee.type_piece!=Piece_vide)
+        {
+            historique[i]=cp;
+        }
+    }
+    maj();
+    echiquier_ref.print();
+    
 }
 void partie() //definition d'une partie
 {
