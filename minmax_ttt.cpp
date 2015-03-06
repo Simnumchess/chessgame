@@ -27,7 +27,7 @@ int algo_minmax_ttt(int position_ttt &P, int profondeur, int alpha, int beta){
 
 
 
-int minmax(position_echecs &P, int profondeur, int alpha, int beta){
+int minmax(position_ttt &P, int profondeur, int alpha, int beta){
 
 cout<<"minmax classique"<<endl;
 
@@ -37,7 +37,7 @@ if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 if (profondeur==0) return P.val_pos;
 
 //On génere les positions filles
-position_echecs *F=P.getPositionFille()
+position_ttt *F=P.getPositionFille()
 int a=F[0].nbfilles;
 
 
