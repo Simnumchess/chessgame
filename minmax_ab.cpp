@@ -95,7 +95,7 @@ else if (P.getJoueur==humain)
   for(i=0;i<a;i++)// on parcourt les positions filles
   {
       min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
-      if (min<=beta) return min; //coupure alpha
+      if (min<=alpha) return min; //coupure alpha
       else beta=Min(beta,min);
   }
 }
