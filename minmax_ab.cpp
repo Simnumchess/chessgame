@@ -38,11 +38,16 @@ consiste à stopper l'exploration d'une branche qd:
 fin
 */
 
-//rajouter double alpha, double beta
 
-int minmax_ab(position_echecs &P, int profondeur, double alpha, double beta){
+
+int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta){
 
 cout<<"variante alpha beta"<<endl;
+
+if (alpha>beta)
+{
+   cout<<"alpha doit être inférieur à beta"<<endl;
+}
 
 int a(0), b(0), i(0), max(-1000);// on met le max à -infini
 
@@ -56,7 +61,7 @@ cout <<"nombre de filles : "<<a<<endl;
 
 if (P.getJoueur==fin_partie) return P.val_pos;
 
-else if(P.getJoueur==ordinateur) 
+else if(P.getJoueur==ordinateur)
 
   for(i=0;i<a;i++)
   // on parcourt les positions filles, on applique minmax_min à leurs positions filles, et on prend le max
@@ -82,23 +87,9 @@ minmax_min: on stoppe l'exploration qd
 */
 
 
-int minmax_ab_min(position_echecs &P, int profondeur){
+int minmax_ab_min(int a, int b){
   cout<<"fonction min du minmax"<<endl;
   
-  if (profondeur==0) return P.getvaleur;
-  
-  int min(1000), a(0), b(0), i(0);
-  
-  Position_echecs *F=P.getPositionFille()
-  a=F[0].nbfilles;
-  
-  for(i=0;i<a;i++){ //on parcourt toutes les positions filles
-    b=minmax_ab_max(F[i],profondeur-1); // on prend le min des minmax des filles
-    if(b<=min){
-      min=b;
-      cout<<"Le min des positions filles est : "<<min<<endl;
-    }
-  }
   
   return min;
 }
@@ -108,23 +99,9 @@ minmax_max: on stoppe l'exploration qd
 à un niveau correspondant à une phase de maximisation, on trouve une valeur inferieure à une valeur minmax du niveau précédent
 */
 
-int minmax_ab_max(position_echecs &P, int profondeur){
+int minmax_ab_max(int a, int b){
   cout<<"fonction max du minmax"<<endl;
   
-  if(profondeur==0) return P.getvaleur;
-  
-  int max(-1000), a(0), b(0), i(0);
-  Position_echecs *F=P.getPositionFille()
-  a=F[0].nbfilles;
-  
-  for(i=0;i<a;i++)
-  {
-    b=minmax_ab_min(F[i],profondeur-1);
-    if(b>=max){
-      max=b;
-      cout<<"Le max des positions filles est : "<<max<<endl;
-    }
-  }
 
   return max;
 }
