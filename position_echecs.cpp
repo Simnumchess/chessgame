@@ -8,6 +8,37 @@
 #include <iostream>
 using namespace std;
 
+position_echec::val_pos_ordinateur()
+{
+    for(int l=0; l<8; l++)
+    {
+        for(int c=0;c<8;c++)
+        if(!(bool casevide(int l,int c)))
+        {
+            if(echectab[l][c].couleur==noir)
+            val_pos_ordinateur=val_pos_ordinateur+echectab[l][c].getvaleurpiece();
+
+        }
+    }
+    return val_pos_ordinateur;
+}
+position_echec::val_pos_humain()
+{
+    for(int l=0; l<8; l++)
+    {
+        for(int c=0;c<8;c++)
+        if(!(bool casevide(int l,int c)))
+        {
+            if(ehcectab[l][c].couleur==blanc)
+            val_pos_humain=val_pos_humain+echectab[l][c].getvaleurpiece();
+
+        }
+    }
+    return val_pos_humain;
+}
+
+
+
 position_echecs::~position_echecs() // destructeur de toutes les positions filles
 {
     if((pos_fille!=NULL)||(pos_soeur!==NULL))
@@ -16,14 +47,6 @@ position_echecs::~position_echecs() // destructeur de toutes les positions fille
 }
 double position_echecs::getvaleur(double alpha,double beta) const// la fonction qui renvoie la valeur d'une position
 {
-    for(int i=0;i<8;i++)
-    {
-        for(int j=0;j<8;j++)
-        if(echectab[i][j].col==blanc)
-        val_pos_humain+=echectab[i][j].val;
-        else if(ehcectab[i][j].col==noir)
-        val_pos_ordinateur+=echectab[i][j].val;
-    }
     int cont_ordinateur=0;
     int cont_humain=0;
 
