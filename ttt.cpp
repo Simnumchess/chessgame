@@ -33,40 +33,17 @@ ttt::~ttt()
 
 void ttt::print()
 {
-    char ttt_tab_indicel[dim];//lettres
-    char ttt_tab_indicec[dim];//chiffres
-    ttt_tab_indicel[0]='A';
-    ttt_tab_indicel[1]='B';
-    ttt_tab_indicel[2]='C';
-
-    ttt_tab_indicec[0]='1';
-    ttt_tab_indicec[1]='2';
-    ttt_tab_indicec[2]='3';
-
-    for(int i=0:i<dim;i++) //premiere ligne : les indices lettres
-    {
-        cout<<"  ";
-        cout<<ttt_tab_indicel[i]<<"  ";
-        cout<<endl;
-    }
-    {
-        for(int i=0;i<dim,i++) //on parcourt les lignes
-        {
-            cout<<ttt_tab_indicec[i]<<" ";//indice chiffre
-            for(int j=0;j<dim;j++)
-            {
-                cout<<ttttab[i][j]<<"|";
-            }
-            cout<<ttt_tab_indicec[i]<<endl; //indice chiffre, puis on passe à la ligne
-            cout<<"------"<<endl;
-        }
-    }
-    for(int i=0:i<dim;i++)
-    {
-        cout<<"  ";
-        cout<<ttt_tab_indicel[i]<<"  ";//dernière ligne : indices lettres
-        cout<<endl;
-    }
+    cout<<endl;
+    cout<<"   A  B  C"<<endl;
+    
+    cout<<"1  "<<ttttab[0][0]<<" | "<<ttttab[0][1]<<" | "<<ttttab[0][2]<<endl;
+    cout<<"  --------"<<endl;
+    
+    cout<<"2  "<<ttttab[1][0]<<" | "<<ttttab[1][1]<<" | "<<ttttab[1][2]<<endl;
+    cout<<"  --------"<<endl;
+    
+    cout<<"3  "<<ttttab[2][0]<<" | "<<ttttab[2][1]<<" | "<<ttttab[2][2]<<endl;
+    cout<<endl;
 }
 
 
