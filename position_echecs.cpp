@@ -38,7 +38,7 @@ int position_echec::val_pos_humain()
         for(int c=0;c<8;c++)
         if(!(bool casevide(int l,int c)))
         {
-            if(ehcectab[l][c].couleur==blanc)
+            if(echectab[l][c].couleur==blanc)
             val_pos_humain=val_pos_humain+echectab[l][c].getvaleurpiece();
 
         }
