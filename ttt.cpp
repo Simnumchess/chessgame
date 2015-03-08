@@ -4,7 +4,6 @@
 #include <iostream>
 #include <ostream>
 
-using namespace std;
 
 ttt::ttt() //initialisation
 {
@@ -34,17 +33,19 @@ ttt::~ttt()
 void ttt::print()
 {
     cout<<endl;
-    cout<<"   A  B  C"<<endl;
+    cout<<"   A   B   C"<<endl;
     
     cout<<"1  "<<ttttab[0][0]<<" | "<<ttttab[0][1]<<" | "<<ttttab[0][2]<<endl;
-    cout<<"  --------"<<endl;
+    cout<<"   ---------"<<endl;
     
     cout<<"2  "<<ttttab[1][0]<<" | "<<ttttab[1][1]<<" | "<<ttttab[1][2]<<endl;
-    cout<<"  --------"<<endl;
+    cout<<"   ---------"<<endl;
     
     cout<<"3  "<<ttttab[2][0]<<" | "<<ttttab[2][1]<<" | "<<ttttab[2][2]<<endl;
     cout<<endl;
+    
 }
+
 
 
 
