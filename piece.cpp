@@ -49,7 +49,7 @@ void piece::print()
         break;
 
         case Piecevide:
-        cout<<"  ";
+        cout<<"   ";//3espaces 2 pour les lettres et un espace
         break;
     }
 }
