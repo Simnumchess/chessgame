@@ -10,6 +10,7 @@
 #include "position_ttt.h"
 #include "position_echecs.h"
 #include "minmax_ttt.h"
+#include "definition.h"
 
 
 //TicTacToe
