@@ -8,8 +8,7 @@ using namespace std;
 
 ttt::ttt() //initialisation
 {
-    dim=3; //la dimension d'un ttt
-    ttttab=new char*[dim];
+    char ttttab[dim][dim];
     for(int i=0;i<dim;i++)
     {
         ttttab[i]=new char[dim];
@@ -34,8 +33,8 @@ ttt::~ttt()
 
 void ttt::print()
 {
-    char* ttt_tab_indicel[dim];//lettres
-    char* ttt_tab_indicec[dim];//chiffres
+    char ttt_tab_indicel[dim];//lettres
+    char ttt_tab_indicec[dim];//chiffres
     ttt_tab_indicel[0]='A';
     ttt_tab_indicel[1]='B';
     ttt_tab_indicel[2]='C';
