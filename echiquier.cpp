@@ -138,8 +138,7 @@ void echiquier::print()
 
 echiquier::echiquier(const echiquier & Echec) //constructeur par copie
 {
-    dim=Echec.dim;
-    echectab=new piece*[dim];
+    piece echectab[dim][dim];
     for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++) {echectab[i][j]=Echec.echectab[i][j];}
@@ -149,11 +148,8 @@ echiquier::echiquier(const echiquier & Echec) //constructeur par copie
 
 echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
 {
-    dim=Echec.dim;
     echectab=NULL;
-    if(dim<=0)
-    return *this;
-    echectab=new piece*[dim];
+    piece echectab[dim][dim];
      for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
