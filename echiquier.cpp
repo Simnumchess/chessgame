@@ -8,7 +8,6 @@ using namespace std;
 
 echiquier::echiquier() //initialisation
 {
-    dim=8; //la dimension d'un echiquier
     piece echectab[dim][dim];
     for(int i=0;i<dim;i++)
     {
@@ -135,44 +134,6 @@ void echiquier::print()
                         }
                 cout<<echec_tab_indicel[j];
         }
-
-    /*cout<<"    ";//4 espaces
-    for(int i=0;i<dim;i++)
-        {
-            cout<<echec_tab_indicec[i]<<" ";
-
-        for(int j=0;j<8;j++)
-            {
-                    piece P;
-                    P=echectab[i][j];
-                    P.print();
-            }
-            cout<<echec_tab_indicec[i]<<endl;
-        }
-    */
-    /*for(int k=0;k<dim;k++)
-    {
-        cout<<"  ";
-        cout<<echec_tab_indicel[k]<<"  ";
-        cout<<endl;
-    }
-    cout<<"    ";//4 espaces
-    for(int i=0;i<dim;i++)
-        {
-            cout<<echec_tab_indicec[i]<<" ";
-
-        for(int j=0;j<8;j++)
-            {
-                    piece P;
-                    P=echectab[i][j];
-                    P.print();
-            }
-            cout<<echec_tab_indicec[i]<<endl;
-        }
-        */
-
-
-
 }
 
 echiquier::echiquier(const echiquier & Echec) //constructeur par copie
@@ -183,8 +144,9 @@ echiquier::echiquier(const echiquier & Echec) //constructeur par copie
     {
         for(int j=0;j<dim;j++) {echectab[i][j]=Echec.echectab[i][j];}
     }
-
 }
+
+
 echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
 {
     dim=Echec.dim;
@@ -198,8 +160,9 @@ echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
         echectab[i][j]=Echec.echectab[i][j];
     }
     return *this;
-
 }
+
+
 bool echiquier::casevide(int l,int c)
 {
     if(echectab[l][c].type_piece==Piecevide)
