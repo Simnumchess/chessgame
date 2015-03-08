@@ -35,7 +35,7 @@ ttt::~ttt()
 void ttt::print()
 {
     char* ttt_tab_indicel[dim];
-    char* ehcec_tab_indicec[dim];
+    char* ttt_tab_indicec[dim];
     ttt_tab_indicel[0]='A';
     ttt_tab_indicel[1]='B';
     ttt_tab_indicel[2]='C';
