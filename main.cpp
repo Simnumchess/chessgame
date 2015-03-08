@@ -12,6 +12,7 @@
 #include "minmax_ttt.h"
 #include "definition.h"
 
+using namespace std
 
 //TicTacToe
 
