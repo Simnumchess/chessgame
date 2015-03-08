@@ -9,12 +9,12 @@ using namespace std;
 ttt::ttt() //initialisation
 {
     dim=3; //la dimension d'un ttt
-    ttttab=new piece*[3];
-    for(int i=0;i<3;i++)
+    ttttab=new char*[3];
+    for(int i=0;i<dim;i++)
     {
-        ttttab[i]=new int[3];
+        ttttab[i]=new int[dim];
         {
-            for(int j=0;j<3;j++)
+            for(int j=0;j<dim;j++)
             ttttab[i][j]=0;
         }
     }
@@ -24,10 +24,10 @@ ttt::ttt() //initialisation
 ttt::~ttt()
 {
     if(ttttab!=NULL)
-    for(int i=0:i<3;i++)
+    for(int i=0:i<dim;i++)
     {
         delete []ttttab[i];
-        for(int j=0;j<3;j++)
+        for(int j=0;j<dim;j++)
         delete []ttttab;
     }
 }
@@ -35,8 +35,8 @@ ttt::~ttt()
 
 void ttt::print()
 {
-    char* ttt_tab_indicel[3];
-    char* ehcec_tab_indicec[3];
+    char* ttt_tab_indicel[dim];
+    char* ehcec_tab_indicec[dim];
     ttt_tab_indicel[0]='A';
     ttt_tab_indicel[1]='B';
     ttt_tab_indicel[2]='C';
@@ -55,7 +55,7 @@ void ttt::print()
         for(int i=0;i<dim,i++) //on parcourt les colonnes
         {
             cout<<ttt_tab_indicec[i]<<" ";
-            for(int j=0;j<3;j++)
+            for(int j=0;j<dim;j++)
             {
                 cout<<ttttab[i][j]<<" ";
             }
@@ -90,7 +90,7 @@ ttt::ttt & operator=(const ttt & TTT) //operator par copie
     ttttab=NULL;
     if(dim<=0)
     return *this;
-    ttttab=new int*[3];
+    ttttab=new int*[dim];
      for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
