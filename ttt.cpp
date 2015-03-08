@@ -9,13 +9,13 @@ using namespace std;
 ttt::ttt() //initialisation
 {
     dim=3; //la dimension d'un ttt
-    ttttab=new int*[dim];
+    ttttab=new char*[dim];
     for(int i=0;i<dim;i++)
     {
-        ttttab[i]=new int[dim];
+        ttttab[i]=new char[dim];
         {
             for(int j=0;j<dim;j++)
-            ttttab[i][j]=0;
+            ttttab[i][j]=' ';
         }
     }
 }
@@ -56,9 +56,10 @@ void ttt::print()
             cout<<ttt_tab_indicec[i]<<" ";//indice chiffre
             for(int j=0;j<dim;j++)
             {
-                cout<<ttttab[i][j]<<" ";
+                cout<<ttttab[i][j]<<"|";
             }
             cout<<ttt_tab_indicec[i]<<endl; //indice chiffre, puis on passe à la ligne
+            cout<<"------"<<endl;
         }
     }
     for(int i=0:i<dim;i++)
