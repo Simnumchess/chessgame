@@ -1,3 +1,5 @@
+#include <iostream>
+#include <ostream>
 #include "coup.h"
 #include "minmax_ab.h"
 #include "minmax.h"
