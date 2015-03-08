@@ -1,10 +1,10 @@
-#include "Echiquier.h"
-#include "Piece.h"
-#include "Coup.h"
+#include "echiquier.h"
+#include "piece.h"
+#include "coup.h"
 #include <iostream>
 #include <ostream>
 
-bool Coup::prise_piece(Echiquier e)
+bool Coup::prise_piece(echiquier e)
 {
     if (e.echectab[nouvelle_l][nouvelle_c].type_piece.Nom_piece==Piecevide)
     {
@@ -51,7 +51,7 @@ void Coup::conv_num_lettre(int n)
     }
 }
 
-void Coup::coda_std_cp(Echiquier e)
+void coup::coda_std_cp(echiquier e)
 {
     switch (piece_jouee.type_piece.Nom_piece)
         {
@@ -91,14 +91,14 @@ void Coup::coda_std_cp(Echiquier e)
 }
 
 
-Coup::~Coup()
+coup::~coup()
 {
 
 }
 
-Coup::Coup()
+coup::coup()
 {
-    color=blanc;
+    couleur=blanc;
     piece_jouee=Piece();
     ancienne_l=0;
     ancienne_c=0;
@@ -109,7 +109,7 @@ Coup::Coup()
 
 Coup::Coup(const Coup & p) //operateur par copie
 {
-    color=p.color;
+    couleur=p.couleur;
     piece_jouee=p.piece_jouee;
     ancienne_l=p.ancienne_l;
     ancienne_c=p.ancienne_c;
@@ -122,7 +122,7 @@ Coup & Coup::operator=(const Coup & p) //operateur = pour une piece
 {
     if (this==&p) return *this;
     else{
-    color=p.color;
+    couleur=p.couleur;
     piece_jouee=p.piece_jouee;
     ancienne_l=p.ancienne_l;
     ancienne_c=p.ancienne_c;
