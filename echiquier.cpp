@@ -87,7 +87,7 @@ echiquier::echiquier() //initialisation
         piece Rn;
         Rn.type_piece=Roi;
         Rn.color=noir;
-        echectab[7][4]=Dn;
+        echectab[7][4]=Rn;
     }
 
 }
