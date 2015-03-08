@@ -9,6 +9,13 @@
 using namespace std;
 
 
+position_echecs::~position_echecs() // destructeur de toutes les positions filles
+{
+    if((pos_fille!=NULL)||(pos_soeur!==NULL))
+    delete []pos_fille;
+    delete []pos_soeur;
+}
+
 
 int position_echec::val_pos_ordinateur()
 {
@@ -41,15 +48,7 @@ int position_echec::val_pos_humain()
 
 
 
-position_echecs::~position_echecs() // destructeur de toutes les positions filles
-{
-    if((pos_fille!=NULL)||(pos_soeur!==NULL))
-    delete []pos_fille;
-    delete []pos_soeur;
-}
-
-
-double position_echecs::getvaleur(int alpha,int beta) const// la fonction qui renvoie la valeur d'une position
+int position_echecs::getvaleur(int alpha,int beta) const// la fonction qui renvoie la valeur d'une position
 {
     int cont_ordinateur=0;
     int cont_humain=0;
@@ -66,7 +65,7 @@ double position_echecs::getvaleur(int alpha,int beta) const// la fonction qui re
         if(!(bool casevide(int l,int c)))&&(ehcectab[l][c].couleur==blanc)
         cont_humain++;
     }
-    double valeur;
+    int valeur;
     valeur=alpha*(position.val_pos_humain-position.val_pos_ordinateur)+beta*(cont_humain-cont_ordinateur);
     return valeur;
 }
