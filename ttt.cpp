@@ -34,8 +34,8 @@ ttt::~ttt()
 
 void ttt::print()
 {
-    char* ttt_tab_indicel[dim];
-    char* ttt_tab_indicec[dim];
+    char* ttt_tab_indicel[dim];//lettres
+    char* ttt_tab_indicec[dim];//chiffres
     ttt_tab_indicel[0]='A';
     ttt_tab_indicel[1]='B';
     ttt_tab_indicel[2]='C';
@@ -51,20 +51,20 @@ void ttt::print()
         cout<<endl;
     }
     {
-        for(int i=0;i<dim,i++) //on parcourt les colonnes
+        for(int i=0;i<dim,i++) //on parcourt les lignes
         {
-            cout<<ttt_tab_indicec[i]<<" ";
+            cout<<ttt_tab_indicec[i]<<" ";//indice chiffre
             for(int j=0;j<dim;j++)
             {
                 cout<<ttttab[i][j]<<" ";
             }
-            cout<<ttt_tab_indicec[i]<<endl; //derniere ligne : les indices lettres
+            cout<<ttt_tab_indicec[i]<<endl; //indice chiffre, puis on passe à la ligne
         }
     }
     for(int i=0:i<dim;i++)
     {
         cout<<"  ";
-        cout<<ttt_tab_indicel[i]<<"  ";
+        cout<<ttt_tab_indicel[i]<<"  ";//dernière ligne : indices lettres
         cout<<endl;
     }
 }
