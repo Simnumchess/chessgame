@@ -21,7 +21,7 @@ class position_echecs : class position
     echiquier echiquier_ref; //definition d'un echiquier de reference(le dernier etat connu de l'echiquier)
     position_echecs maj(); //mise a jour des positions
     double getvaleur() const; //renvoie la valeur d'une position
-    position_echecs* get_pos_suiv(); //constructeur de toutes les positions suivantes a une profondeur donnee
+    position_echecs* getPositionFille(); //constructeur de toutes les positions suivantes a une profondeur donnee
     
     position_echecs(); //constructeur d'une position
     position_echecs(const position_echec &) //constructeur par copie
