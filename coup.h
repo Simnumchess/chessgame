@@ -1,31 +1,28 @@
+
 #ifndef COUP_H_INCLUDED
 #define COUP_H_INCLUDED
 
-#include "Piece.h"
-#include "Echiquier.h"
+#include"piece.h"
+#include"echiquier.h"
 
-//enum coup_speciaux{};
-
-class Coup
+class coup
 {
     public :
-
+    piece piece_jouee;
+    piece piece_mangee;
+    int ligne_init;
+    int colonne_init;
+    int ligne_final;
+    int colonne_final;
     couleur color;
-    Piece piece_jouee;
-    int ancienne_l;//ancienne position ligne
-    int ancienne_c;//ancienne position colonne
-    int nouvelle_l;//nouvelle position ligne
-    int nouvelle_c;//nouvelle position colonne
-    bool prise_piece(Echiquier e);
-    //bool coup_special;
-    void conv_num_lettre(int n);//affiche la lettre correspondant au numero de colonne
-    void coda_std_cp(Echiquier e);
-
-    Coup(); //constructeur
-    Coup & operator=(const Coup &); //operateur = pour un coup
-     Coup(const Coup & p); //operateur par copie
-    ~Coup();
+    bool coup_possible_non_complet(echiquier e);
+    bool coup_possible(echiquier e); //on essaye d'utiliser les fonctions déplacement de chaque piece dans cette fonction...
+    bool obstacle(echiquier e);
+    bool echec(echiquier e);
+    coup(); //constructeur
+    coup & operator=(const coup &); //operateur = pour un coup
+     coup(const coup & p); //operateur par copie
+    ~coup();
 };
 
 #endif // COUP_H_INCLUDED
-
