@@ -20,5 +20,7 @@ char placement_croix[2];
 cin>>placement_croix;
 cout<<"Vous avez choisi de placer votre croix en "<<placement_croix<<endl;
 
+TTT.ttttab[]
+}
 
 
