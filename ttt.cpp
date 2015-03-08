@@ -27,7 +27,6 @@ ttt::~ttt()
     for(int i=0:i<dim;i++)
     {
         delete []ttttab[i];
-        for(int j=0;j<dim;j++)
         delete []ttttab;
     }
 }
