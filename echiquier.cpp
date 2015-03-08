@@ -9,18 +9,16 @@ using namespace std;
 echiquier::echiquier() //initialisation
 {
     dim=8; //la dimension d'un echiquier
-    echectab=new piece*[dim];
+    piece echectab[dim][dim];
     for(int i=0;i<dim;i++)
     {
-        echectab[i]=new piece[dim];
+        for(int j=0;j<dim;j++)
         {
-            for(int j=0;j<dim;j++)
-            {
-            piece PV;
-            echectab[i][j]=PV;
-            }
+        piece PV;
+        echectab[i][j]=PV;
         }
-    }
+    } 
+
     for(int i=0;i<dim;i++)
     {
         piece Pb;
