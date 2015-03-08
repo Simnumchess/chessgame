@@ -9,7 +9,7 @@ using namespace std;
 ttt::ttt() //initialisation
 {
     dim=3; //la dimension d'un ttt
-    ttttab=new char*[3];
+    ttttab=new int*[dim];
     for(int i=0;i<dim;i++)
     {
         ttttab[i]=new int[dim];
