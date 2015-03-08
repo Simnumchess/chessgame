@@ -95,7 +95,7 @@ echiquier::~echiquier()
 {
     if(echectab!=NULL)
     {
-        for(int i=0;i<8;i++)
+        for(int i=0;i<dim;i++)
         {
             delete []echectab[i];
             delete []echectab;
@@ -104,8 +104,8 @@ echiquier::~echiquier()
 }
 void echiquier::print()
 {
-    char echec_tab_indicel[8];
-    char echec_tab_indicec[8];
+    char echec_tab_indicel[dim];
+    char echec_tab_indicec[dim];
     echec_tab_indicel[0]='A';
     echec_tab_indicel[1]='B';
     echec_tab_indicel[2]='C';
@@ -193,7 +193,7 @@ echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
     echectab=NULL;
     if(dim<=0)
     return *this;
-    echectab=new piece*[8];
+    echectab=new piece*[dim];
      for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
