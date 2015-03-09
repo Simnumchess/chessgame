@@ -9,16 +9,16 @@ using namespace std;
 echiquier::echiquier() //initialisation
 {
     piece echectab[8][8];
-    for(int i=0;i<dim;i++)
+    for(int i=0;i<8;i++)
     {
-        for(int j=0;j<dim;j++)
+        for(int j=0;j<8;j++)
         {
             piece PV;
             PV.type_piece=Piecevide;
             echectab[i][j]=PV;
         }
     }
-    for(int i=0;i<dim;i++)
+    for(int i=0;i<8;i++)
     {
         piece Pb;
         Pb.type_piece=Pion;
@@ -92,7 +92,7 @@ echiquier::~echiquier()
 {
     if(echectab!=NULL)
     {
-        for(int i=0;i<dim;i++)
+        for(int i=0;i<8;i++)
         {
             delete []echectab[i];
         }
@@ -131,24 +131,19 @@ cout<<endl;
 
 echiquier::echiquier(const echiquier & Echec) //constructeur par copie
 {
-    dim=Echec.dim;
-    echectab=new piece*[dim];
-    for(int i=0;i<dim;i++)
+    piece echectab[8][8];
+    for(int i=0;i<8;i++)
     {
-        for(int j=0;j<dim;j++) {echectab[i][j]=Echec.echectab[i][j];}
+        for(int j=0;j<8;j++) {echectab[i][j]=Echec.echectab[i][j];}
     }
 
 }
 echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
 {
-    dim=Echec.dim;
-    echectab=NULL;
-    if(dim<=0)
-    return *this;
-    echectab=new piece*[dim];
-     for(int i=0;i<dim;i++)
+    piece echectab[8][8];
+     for(int i=0;i<8;i++)
     {
-        for(int j=0;j<dim;j++)
+        for(int j=0;j<8;j++)
         echectab[i][j]=Echec.echectab[i][j];
     }
     return *this;
