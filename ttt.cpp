@@ -75,63 +75,85 @@ ttt::ttt & operator=(const ttt & TTT) //operator par copie
 
 bool ttt::casevide(int l,int c)
 {
-    if(ttttab[l][c]==0)
-    return true;
+    if(ttttab[l][c]==" ")
+    return 1;
     else
-    return false;
+    return 0;
 }
 
-int fin_partie()
+int ttt::nb_casesvides(){
+    int nb=0;
+    for (int i=0;i<3;i++){
+        for (int j=0;j<3;j++){
+            if(casevide(i,j)==1)
+            nb=nb+1;
+        }
+    }
+    return nb;
+}
+
+int ttt::fin_partie()
 {
+    
+    if (nb_casesvides==0)
+    {
+    
+    cout<<"Fin de la partie !"<<endl;
+
    if(ttttab[0][0]==ttttab[0][1]) {
        if(ttttab[0][1]==ttttab[0][2])
-       cout<<ttttab[0][0]<<"a gagné"<<endl;
-       
+       cout<<ttttab[0][0]<<" a gagné !"<<endl;
    }
    
    if(ttttab[1][0]==ttttab[1][1]) {
        if(ttttab[1][1]==ttttab[1][2])
-       cout<<ttttab[1][0]<<"a gagné"<<endl;
+       cout<<ttttab[1][0]<<" a gagné !"<<endl;
        
    }    
    
    if(ttttab[2][0]==ttttab[2][1]) {
        if(ttttab[2][1]==ttttab[2][2])
-       cout<<ttttab[2][0]<<"a gagné"<<endl;
+       cout<<ttttab[2][0]<<" a gagné !"<<endl;
        
    }
     
    if(ttttab[0][0]==ttttab[1][0]) {
        if(ttttab[1][0]==ttttab[2][0])
-       cout<<ttttab[0][0]<<"a gagné"<<endl;
+       cout<<ttttab[0][0]<<" a gagné !"<<endl;
        
    }
    
    if(ttttab[0][1]==ttttab[1][1]) {
        if(ttttab[1][1]==ttttab[2][1])
-       cout<<ttttab[0][1]<<"a gagné"<<endl;
+       cout<<ttttab[0][1]<<" a gagné !"<<endl;
        
    }
 
    if(ttttab[0][2]==ttttab[1][2]) {
        if(ttttab[1][2]==ttttab[2][2])
-       cout<<ttttab[0][1]<<"a gagné !"<<endl;
+       cout<<ttttab[0][1]<<" a gagné !"<<endl;
        
    }
     
    if(ttttab[0][0]==ttttab[1][1]) {
        if(ttttab[1][1]==ttttab[2][2])
-       cout<<ttttab[0][0]<<"a gagné !"<<endl;
+       cout<<ttttab[0][0]<<" a gagné !"<<endl;
        
    }
 
    if(ttttab[0][2]==ttttab[1][1]) {
        if(ttttab[1][1]==ttttab[2][0])
-       cout<<ttttab[0][2]<<"a gagné !"<<endl;
+       cout<<ttttab[0][2]<<" a gagné !"<<endl;
        
    }
    
-   else cout<<"Match nul...Retente ta chance !"
+   else cout<<"Match nul...Retente ta chance !"<<endl;
+   
+   return 1;
     
-    
+   }
+   
+ else return 0;
+   
+
 }
