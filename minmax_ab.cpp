@@ -1,6 +1,8 @@
 #include "minmax_ab.h"
 #include "position_echecs.h"
 
+//il faut prendre alpha=-1000 et beta=1000
+
 // variante alpha beta
 /*
 consiste à stopper l'exploration d'une branche qd:
