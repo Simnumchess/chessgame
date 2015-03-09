@@ -3,7 +3,7 @@
 #include "position_ttt.h"
 
 
-int algo_minmax_ttt(int position_ttt &P, int profondeur, int alpha, int beta){
+int algo_minmax_ttt(position_ttt &P, int profondeur, int alpha, int beta){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
    position_ttt *F=P.getPositionFille()
