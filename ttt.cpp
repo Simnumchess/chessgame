@@ -130,6 +130,8 @@ int fin_partie()
        cout<<ttttab[0][2]<<"a gagné !"<<endl;
        
    }
+   
+   else cout<<"Match nul...Retente ta chance !"
     
     
 }
