@@ -3,6 +3,7 @@
 #include "definition.h"
 #include <iostream>
 #include <ostream>
+#include <string>
 
 
 ttt::ttt() //initialisation
@@ -150,10 +151,16 @@ int ttt::fin_partie()
    else cout<<"Match nul...Retente ta chance !"<<endl;
    
    return 1;
-    
+  
    }
    
  else return 0;
    
+}
 
+
+string ttt::getJoueur(){
+    nb=nb_casesvides();
+    if (nb==9||nb==7==||nb==5||nb==3||nb=1) return "humain";
+    else return "ordinateur";
 }
