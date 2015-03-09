@@ -160,7 +160,7 @@ int ttt::fin_partie()
 
 
 string ttt::getJoueur(){
-    nb=nb_casesvides();
+    int nb=nb_casesvides();
     if (nb==9||nb==7==||nb==5||nb==3||nb=1) return "humain";
     else return "ordinateur";
 }
