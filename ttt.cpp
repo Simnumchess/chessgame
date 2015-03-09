@@ -7,12 +7,12 @@
 
 ttt::ttt() //initialisation
 {
-    char ttttab[dim][dim];
-    for(int i=0;i<dim;i++)
+    char ttttab[3][3];
+    for(int i=0;i<3;i++)
     {
-        ttttab[i]=new char[dim];
+        ttttab[i]=new char[3];
         {
-            for(int j=0;j<dim;j++)
+            for(int j=0;j<3;j++)
             ttttab[i][j]=' ';
         }
     }
@@ -22,7 +22,7 @@ ttt::ttt() //initialisation
 ttt::~ttt()
 {
     if(ttttab!=NULL)
-    for(int i=0:i<dim;i++)
+    for(int i=0:i<3;i++)
     {
         delete []ttttab[i];
         delete []ttttab;
@@ -52,7 +52,7 @@ void ttt::print()
 ttt::ttt(const ttt & TTT) //constructeur par copie
 {
     dim=TTT.dim;
-    ttttab=new int*[dim];
+    char ttttab[3][3];
     for(int i=0;i<dim;i++)
     {
         for(int j=0;j<dim;j++)
@@ -63,14 +63,10 @@ ttt::ttt(const ttt & TTT) //constructeur par copie
 
 ttt::ttt & operator=(const ttt & TTT) //operator par copie
 {
-    dim=TTT.dim;
-    ttttab=NULL;
-    if(dim<=0)
-    return *this;
-    ttttab=new int*[dim];
-     for(int i=0;i<dim;i++)
+    char ttttab[3][3];
+    for(int i=0;i<3;i++)
     {
-        for(int j=0;j<dim;j++)
+        for(int j=0;j<3;j++)
         ttttab[i][j]=TTT.ttttab[i][j];
     }
     return *this;
