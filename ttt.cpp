@@ -81,4 +81,45 @@ bool ttt::casevide(int l,int c)
     return false;
 }
 
+int fin_partie()
+{
+   if(ttttab[0][0]==ttttab[0][1]) {
+       if(ttttab[0][1]==ttttab[0][2])
+       cout<<ttttab[0][0]<<"a gagné"<<endl;
+       
+   }
+   
+   if(ttttab[1][0]==ttttab[1][1]) {
+       if(ttttab[1][1]==ttttab[1][2])
+       cout<<ttttab[1][0]<<"a gagné"<<endl;
+       
+   }    
+   
+   if(ttttab[2][0]==ttttab[2][1]) {
+       if(ttttab[2][1]==ttttab[2][2])
+       cout<<ttttab[2][0]<<"a gagné"<<endl;
+       
+   }
+    
+   if(ttttab[0][0]==ttttab[1][0]) {
+       if(ttttab[1][0]==ttttab[2][0])
+       cout<<ttttab[0][0]<<"a gagné"<<endl;
+       
+   }
+   
+   if(ttttab[0][1]==ttttab[1][1]) {
+       if(ttttab[1][1]==ttttab[2][1])
+       cout<<ttttab[0][1]<<"a gagné"<<endl;
+       
+   }
 
+   if(ttttab[0][2]==ttttab[1][2]) {
+       if(ttttab[1][2]==ttttab[2][2])
+       cout<<ttttab[0][1]<<"a gagné"<<endl;
+       
+   }
+    
+    
+    
+    
+}
