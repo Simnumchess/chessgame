@@ -4,7 +4,9 @@
 #include "coup.h"
 #include <ostream>
 #include <iostream>
+
 using namespace std;
+
 position_echecs::position_echecs() //constructeur de la position initiale
 {
     coup_joue=coup();
