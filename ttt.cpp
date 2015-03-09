@@ -115,11 +115,21 @@ int fin_partie()
 
    if(ttttab[0][2]==ttttab[1][2]) {
        if(ttttab[1][2]==ttttab[2][2])
-       cout<<ttttab[0][1]<<"a gagné"<<endl;
+       cout<<ttttab[0][1]<<"a gagné !"<<endl;
        
    }
     
-    
+   if(ttttab[0][0]==ttttab[1][1]) {
+       if(ttttab[1][1]==ttttab[2][2])
+       cout<<ttttab[0][0]<<"a gagné !"<<endl;
+       
+   }
+
+   if(ttttab[0][2]==ttttab[1][1]) {
+       if(ttttab[1][1]==ttttab[2][0])
+       cout<<ttttab[0][2]<<"a gagné !"<<endl;
+       
+   }
     
     
 }
