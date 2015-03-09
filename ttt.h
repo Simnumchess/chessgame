@@ -1,9 +1,6 @@
 #ifndef TTT_H_INCLUDED
 #define TTT_H_INCLUDED
-#include "definition.h"
-#include "piece.h"
-#include "position.h"
-#include "position_ttt.h"
+
 using namespace std;
 
 class ttt
@@ -16,6 +13,8 @@ class ttt
     ttt(const ttt &); //operateur par copie
     ttt & operator=(const operator &); //operateur=
     ~ttt(); //destructeur d'un ttt
+    string getjoueur();
+    int nb_casesvides();
 };
 
 
