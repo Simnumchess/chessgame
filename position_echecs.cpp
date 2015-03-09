@@ -31,7 +31,7 @@ int position_echecs::val_pos_humain()
     }
     return val_pos_humain;
 }
-/*
+
 
 
 position_echecs::~position_echecs()// destructeur de toutes les positions filles
@@ -40,8 +40,10 @@ position_echecs::~position_echecs()// destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-double position_echecs::getvaleur(double alpha,double beta)// la fonction qui renvoie la valeur d'une position
+double position_echecs::getvaleur()// la fonction qui renvoie la valeur d'une position
 {
+    int alpha=1;
+    int beta=1;
     int cont_ordinateur=0;
     int cont_humain=0;
 
@@ -72,28 +74,25 @@ position_echecs* position_echecs::get_pos_suiv()
         {
             for(int c=0;c<8;c++)
             {
-                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.echectab[l][c].color==blanc)
+                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.echectab[l][c].color==blanc))
                 {
                     coup C;
                     C.piece_jouee=echiquier_ref.echectab[l][c];
-                    C.piece_mangee=piece() //piecevide
-                    if(bool coup_possible(coup C)==true)
+                    C.piece_mangee=piece(); //piecevide
+                    if(C.coup_possible(echiquier_ref)==true)
                     {
-                        pos_fille[n]=position_echec(*this);
+                        pos_fille[n]=position_echecs(*this);
                         if(Jeu_pos==humain)
                         {
-                            pos_fille[n].Jeu_pos==ordinateur;
+                            pos_fille[n].Jeu_pos=ordinateur;
                         }
                         else
                         {
-                            pos_fille[n].Jeu_pos==humain;
+                            pos_fille[n].Jeu_pos=humain;
                         }
                         n++;
                     }
                 }
-                               
-                
-            }
         }
         return pos_fille;
     }
@@ -103,14 +102,29 @@ position_echecs* position_echecs::get_pos_suiv()
         {
             for(int c=0;c<8;c++)
             {
-                if((echiquier_ref.echectab[l][c]!=Piecevide&&echiquier_ref.echectab[l][c].color==noir))
-                //coup possible??
-                
+                if((echiquier_ref.echectab[l][c].type_piece!=Piecevide)&&(echiquier_ref.echectab[l][c].color==noir))
+                {
+                    coup C;
+                    C.piece_jouee=echiquier_ref.echectab[l][c];
+                    C.piece_mangee=piece(); //piecevide
+                    if(C.coup_possible(echiquier_ref)==true)
+                    {
+                        pos_fille[n]=position_echecs(*this);
+                        if(Jeu_pos==humain)
+                        {
+                            pos_fille[n].Jeu_pos=ordinateur;
+                        }
+                        else
+                        {
+                            pos_fille[n].Jeu_pos=humain;
+                        }
+                        n++;
+                    }
+                }
             }
-        }
-        return pos_fille;
-    }
+            return pos_fille;    }
 }
+/*
 int position_echecs::resultat() const
 {
     if(coup_joue.piece_mangee.type_piece==Roi)
@@ -130,6 +144,8 @@ int position_echecs::resultat() const
     else return 0;
     cout<<"Please continue...";
 }
+*/
+/*
 position_echecs & position_echecs::explorer() //explorer 4 coups(2 par joueurs)
 {
     int l1,l2,c1,c2=0;
@@ -144,9 +160,12 @@ position_echecs & position_echecs::explorer() //explorer 4 coups(2 par joueurs)
     cp.col=echiquier_ref.echectab[l1][c1].col;
     
 }
+*/
 position_echecs position_echecs::maj() //mise a jour de l'echiquier de reference apres les coups jouees
 {
-    //coup possible
+    echiquier_ref.echectab[coup_jouee.colonne_final][coup_jouee.ligne_final]=coup_jouee.piece_jouee;
+    echiquier_ref.echectab[coup_jouee.colonne_init][coup_jouee.ligne_init]=piece();
+    return *this;
 }
 
 
@@ -216,6 +235,7 @@ position_ehcec & position_echec::IA()
     echiquier_ref.print();
     
 }
+/*
 void partie() //definition d'une partie
 {
     echiquier E; //definition d'un echiquier
@@ -232,7 +252,4 @@ void partie() //definition d'une partie
     
     
 }
- 
- 
- */
-
+*/
