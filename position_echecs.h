@@ -26,7 +26,7 @@ class position_echecs
     position_echecs(const position_echecs &); //constructeur par copie
     position_echecs & operator=(const position_echecs &); //operateur =
     ~position_echecs(); //destructeur d'une position
-    position_echecs& IA(position_echecs );
+    void IA(position_echecs & );
 };
 
 
