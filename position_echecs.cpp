@@ -19,7 +19,8 @@ position_echecs::~position_echecs()// destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier de reference apres les coups jouees
+
+echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier de reference apres les coups joués
 {
     echiquier E=pos.echiquier_ref;
     coup cp=pos.coup_joue;
