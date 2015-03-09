@@ -108,15 +108,15 @@ position_echecs::position_echecs(const position_echecs & p) //operateur par copi
     pos_soeur=p.pos_soeur;
 }
 
-position_echecs & position_echecs::IA(position_echecs p)
+void position_echecs::IA(position_echecs & p)
 {
     int l1,c1,l2,c2=0;
-    cout<<"Choisissez la piece..."<<endl;
+    cout<<"Choisissez la piece :"<<endl;
     cout<<"ligne=?"<<endl;
     cin>>l1;
     cout<<"colone=?";
     cin>>c1;
-    cout<<"Choisissez la case que vous voulez aller a"<<endl;
+    cout<<"Choisissez la case où vous voulez aller :"<<endl;
     cout<<"ligne=?"<<endl;
     cin>>l2;
     cout<<"colone=?"<<endl;
@@ -129,7 +129,8 @@ position_echecs & position_echecs::IA(position_echecs p)
         
     if(cp.coup_possible(echiquier_ref)==false)
     {
-        cout<<"coup pas possible"<<endl;
+        cout<<"Coup interdit. Il faut choisir un autre coup..."<<endl;
+        IA(p);
     }
     else
     {
