@@ -55,7 +55,7 @@ void piece::print()
 }
 int piece::getvaleurpiece()
 {
-    int v; //on decide la valeur du v
+    int v=1; //on decide la valeur du v
     switch(type_piece)
     {
         case Pion:
@@ -81,11 +81,11 @@ int piece::getvaleurpiece()
         break;
     }
 }
-bool piece::deplacement()
+bool piece::deplacement(int l,int c)
 {
     piece Piece;
-    int l=Piece.deplacementl;
-    int c=Piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
+    l=Piece.deplacementl;
+    c=Piece.deplacementc; //(l,c) coordonnee de la piece apres deplacement
     int i=Piece.i;
     int j=Piece.j; //(i,l) coordonnee de la piece apres deplacement
     switch(type_piece)
