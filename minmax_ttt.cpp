@@ -6,7 +6,7 @@
 int algo_minmax_ttt(ttt &TTT, int profondeur, int alpha, int beta){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
-   position_ttt *F=P.getPositionFille()
+   position_ttt *F=TTT.getPositionFille()
    int a=F[0].nbfilles;
    cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
    int max=-1000;
@@ -27,23 +27,23 @@ int algo_minmax_ttt(ttt &TTT, int profondeur, int alpha, int beta){
 
 
 
-int minmax(position_ttt &P, int profondeur, int alpha, int beta){
+int minmax(position_ttt &TTT, int profondeur, int alpha, int beta){
 
 cout<<"minmax classique"<<endl;
 
 if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 
 
-if (profondeur==0) return P.val_pos;
+if (profondeur==0) return TTT.val_pos;
 
 //On génere les positions filles
-position_ttt *F=P.getPositionFille()
+position_ttt *F=TTT.getPositionFille()
 int a=F[0].nbfilles;
 
 
-if (P.getJoueur==fin_partie) return P.val_pos;
+if (TTT.getJoueur==fin_partie) return TTT.val_pos;
 
-else if(P.getJoueur==ordinateur)
+else if(TTT.getJoueur==ordinateur)
 { 
   max=-1000;
   for(i=0;i<a;i++)// on parcourt les positions filles
@@ -51,7 +51,7 @@ else if(P.getJoueur==ordinateur)
       max=Max(max,minmax(F[i], profondeur-1, alpha, beta))
   }
 }
-else if (P.getJoueur==humain)
+else if (TTT.getJoueur==humain)
 {
    min=1000;
   for(i=0;i<a;i++)// on parcourt les positions filles
