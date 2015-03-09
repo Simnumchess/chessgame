@@ -64,7 +64,7 @@ double position_echecs::getvaleur(position_echecs pos)// la fonction qui renvoie
 }
 
 
-position_echecs* position_echecs::get_pos_suiv(position_echecs p)
+position_echecs* position_echecs::get_pos_suiv(position_echecs &p)
 {
     echiquier E=p.echiquier_ref;
     coup cp=p.coup_joue;
@@ -87,6 +87,8 @@ position_echecs* position_echecs::get_pos_suiv(position_echecs p)
     }
     return  p.pos_fille;
 }
+
+
 position_echecs & position_echecs::operator=(const position_echecs & p) //operateur = pour une position_echec
 {
     if(this==&p)
