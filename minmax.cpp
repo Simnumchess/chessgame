@@ -33,7 +33,7 @@ fin
 
 
 
-int algo_minmax (position_echecs &P, int profondeur, int alpha, int beta){
+int algo_minmax (position_echecs &P, int profondeur){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
    position_echecs *F=P.get_pos_suiv(P);
@@ -57,7 +57,7 @@ int algo_minmax (position_echecs &P, int profondeur, int alpha, int beta){
 
 
 
-int minmax(position_echecs &P, int profondeur, int alpha, int beta){
+int minmax(position_echecs &P, int profondeur){
 
 cout<<"minmax classique"<<endl;
 
@@ -78,7 +78,7 @@ else if(P.Jeu_pos==ordinateur)
   int max=-1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      max=Max(max,minmax(F[i], profondeur-1, alpha, beta));
+      max=Max(max,minmax(F[i], profondeur-1));
   }
 }
 else if (P.Jeu_pos==humain)
@@ -86,7 +86,7 @@ else if (P.Jeu_pos==humain)
    int min=1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta));
+      min=Min(min,minmax_ab(F[i], profondeur-1));
   }
 }
 
