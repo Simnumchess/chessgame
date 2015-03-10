@@ -19,7 +19,7 @@ class position_echecs
     Joueur Jeu_pos; //un indicateur sur le joueur qui doit jouer cette position: {humain;ordinateur}
     
     echiquier maj(position_echecs ); //mise a jour des positions
-    double getvaleur(position_echecs ); //renvoie la valeur d'une position
+    int getvaleur(position_echecs ,int ,int ); //renvoie la valeur d'une position
     position_echecs* get_pos_suiv(position_echecs & ); //constructeur de toutes les positions suivantes a une profondeur donnee
     
     position_echecs(); //constructeur d'une position
