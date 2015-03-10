@@ -3,8 +3,8 @@
 #include "position_echecs.h"
 
 
-int algo_minmax(position_echecs &P, int profondeur, int alpha, int beta);
-int minmax(position_echecs &P, int profondeur, int alpha, int beta);
+int algo_minmax(position_echecs &P, int profondeur, int a, int b);
+int minmax(position_echecs &P, int profondeur, int a, int b);
 int Min(int a, int b);
 int Max(int a, int b);
 
