@@ -44,7 +44,7 @@ int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
 
 //C'est à l'ordinateur de jouer donc on prend le max des positions filles (positions que peut jouer l'ordinateur)
    for(int i=0; i<a;i++){
-         int val=minmax_ab(F[i],profondeur,alpha,beta);
+         int val=minmax(F[i],profondeur,alpha,beta);
          if(val>max){
             max=val;
             indice_position_fille=i;
