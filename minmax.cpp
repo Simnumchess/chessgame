@@ -75,7 +75,7 @@ if (P.Jeu_pos==fin_partie) return P.getvaleur(P);
 
 else if(P.Jeu_pos==ordinateur)
 { 
-  max=-1000;
+  int max=-1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
       max=Max(max,minmax(F[i], profondeur-1, alpha, beta));
@@ -83,7 +83,7 @@ else if(P.Jeu_pos==ordinateur)
 }
 else if (P.Jeu_pos==humain)
 {
-   min=1000;
+   int min=1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
       min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta));
