@@ -8,12 +8,13 @@ using namespace std;
 class echiquier
 {
     public:
-    piece echectab[8][8];
-    bool casevide(int l,int c) //prend un case de coordonee (l,c) et regarde si la case est vide
+    int dim=8;
+    piece **echectab; //le tableau 8*8 de pointeurs de pieces
+    bool casevide(int l,int c); //prend un case de coordonee (l,c) et regarde si la case est vide
     void print(); //print un echiquier
     echiquier(); //initialisation d'un echiquier
     echiquier(const echiquier &); //operateur par copie
-    echiquier & operator=(const operator &); //operateur=
+    echiquier & operator=(const echiquier &); //operateur=
     ~echiquier(); //destructeur d'un echiquier
 };
 
