@@ -71,7 +71,7 @@ position_echecs *F=P.get_pos_suiv(P)
 int a=P.nbcoup(P);
 
 
-if (P.Jeu_pos==fin_partie) return P.getvaleur(P);
+if (P.Jeu_pos==fin_partie) return P.getvaleur(P, a, b);
 
 else if(P.Jeu_pos==ordinateur)
 { 
