@@ -64,7 +64,7 @@ cout<<"minmax classique"<<endl;
 if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 
 
-if (profondeur==0) return P.getvaleur(P);
+if (profondeur==0) return P.getvaleur(P, a, b);
 
 //On génere les positions filles
 position_echecs *F=P.get_pos_suiv(P)
