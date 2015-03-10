@@ -68,7 +68,7 @@ if (profondeur==0) return P.getvaleur(P);
 
 //On génere les positions filles
 position_echecs *F=P.get_pos_suiv(P)
-int a=P.nbcoup();
+int a=P.nbcoup(P);
 
 
 if (P.Jeu_pos==fin_partie) return P.getvaleur(P);
@@ -76,17 +76,17 @@ if (P.Jeu_pos==fin_partie) return P.getvaleur(P);
 else if(P.Jeu_pos==ordinateur)
 { 
   max=-1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      max=Max(max,minmax(F[i], profondeur-1, alpha, beta))
+      max=Max(max,minmax(F[i], profondeur-1, alpha, beta));
   }
 }
 else if (P.Jeu_pos==humain)
 {
    min=1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta));
   }
 }
 
