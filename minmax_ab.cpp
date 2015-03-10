@@ -48,7 +48,7 @@ int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
    position_echecs *F=P.get_pos_suiv(P)
-   int a=F[0].nb_coup(P);
+   int a=F[0].nbcoup(P);
    cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
    int max=-1000;
    int indice_position_fille=0;
