@@ -84,7 +84,7 @@ position_echecs *F=P.getPositionFille()
 int a=F[0].nbfilles;
 
 
-if (P.getJoueur==fin_partie) return P.val_pos;
+if (P.fin_partie(P)) return P.val_pos;
 
 else if(P.getJoueur==ordinateur)
 { 
