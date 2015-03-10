@@ -29,7 +29,7 @@ echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier
     return E;
 }
 
-double position_echecs::getvaleur(position_echecs pos)// la fonction qui renvoie la valeur d'une position
+double position_echecs::getvaleur(position_echecs pos, int alpha, int beta)// la fonction qui renvoie la valeur d'une position
 {
     int val_piece_ordinateur=0;
     int cont_ordinateur=0;
