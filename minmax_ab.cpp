@@ -44,8 +44,9 @@ consiste à stopper l'exploration d'une branche qd:
 fin
 */
 
-int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
-   
+int algo_minmax (int position_echecs &P, int profondeur){
+   int alpha=-1000;
+   int beta=1000;
    //On génere les positions filles (positions que peut jouer l'ordinateur)
    position_echecs *F=P.get_pos_suiv(P)
    int a=F[0].nbcoup(P);
