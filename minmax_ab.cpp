@@ -44,7 +44,7 @@ consiste à stopper l'exploration d'une branche qd:
 fin
 */
 
-int algo_minmax (int position_echecs &P, int profondeur){
+int algo_minmax (int position_echecs &P, int profondeur, int a, int b){
    int alpha=-1000;
    int beta=1000;
    //On génere les positions filles (positions que peut jouer l'ordinateur)
@@ -56,7 +56,7 @@ int algo_minmax (int position_echecs &P, int profondeur){
 
 //C'est à l'ordinateur de jouer donc on prend le max des positions filles (positions que peut jouer l'ordinateur)
    for(int i=0; i<a;i++){
-         int val=minmax_ab(F[i],profondeur,alpha,beta);
+         int val=minmax_ab(F[i],profondeur,alpha,beta,a,b);
          if(val>max){
             max=val;
             indice_position_fille=i;
@@ -69,7 +69,7 @@ int algo_minmax (int position_echecs &P, int profondeur){
 
 
 
-int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta){
+int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta, a, b){
 
 cout<<"variante alpha beta"<<endl;
 
@@ -92,7 +92,7 @@ else if(P.getJoueur==ordinateur)
   int max=-1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta));
+      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta, a,b));
       if (max>=beta) return max; //coupure beta
       else alpha=Max(alpha,max);
   }
@@ -102,7 +102,7 @@ else if (P.getJoueur==humain)
    int min=1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta));
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta, a, b));
       if (min<=alpha) return min; //coupure alpha
       else beta=Min(beta,min);
   }
