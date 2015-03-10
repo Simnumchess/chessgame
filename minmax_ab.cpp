@@ -84,9 +84,9 @@ if (P.getJoueur==fin_partie) return P.val_pos;
 else if(P.getJoueur==ordinateur)
 { 
   max=-1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta))
+      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta));
       if (max>=beta) return max; //coupure beta
       else alpha=Max(alpha,max);
   }
@@ -94,9 +94,9 @@ else if(P.getJoueur==ordinateur)
 else if (P.getJoueur==humain)
 {
    min=1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
-      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta));
       if (min<=alpha) return min; //coupure alpha
       else beta=Min(beta,min);
   }
