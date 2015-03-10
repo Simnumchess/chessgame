@@ -8,17 +8,21 @@ using namespace std;
 
 echiquier::echiquier() //initialisation
 {
-    piece echectab[8][8];
-    for(int i=0;i<8;i++)
+    dim=8; //la dimension d'un echiquier
+    echectab=new piece*[dim];
+    for(int i=0;i<dim;i++)
     {
-        for(int j=0;j<8;j++)
+        echectab[i]=new piece[dim];
         {
-            piece PV;
-            PV.type_piece=Piecevide;
-            echectab[i][j]=PV;
+            for(int j=0;j<dim;j++)
+            {
+                piece PV;
+                PV.type_piece=Piecevide;
+                echectab[i][j]=PV;
+            }
         }
     }
-    for(int i=0;i<8;i++)
+    for(int i=0;i<dim;i++)
     {
         piece Pb;
         Pb.type_piece=Pion;
@@ -92,7 +96,7 @@ echiquier::~echiquier()
 {
     if(echectab!=NULL)
     {
-        for(int i=0;i<8;i++)
+        for(int i=0;i<dim;i++)
         {
             delete []echectab[i];
         }
@@ -101,49 +105,99 @@ echiquier::~echiquier()
 }
 void echiquier::print()
 {
-cout<<"  A  B  C  D  E  F  G  H"<<endl;
-cout<<"1  ";
-cout<<echectab[0][0].print()<<echectab[0][1].print()<<echectab[0][2].print()<<echectab[0][3].print();
-cout<<echectab[0][4].print()<<echectab[0][5].print()<<echectab[0][6].print()<<echectab[0][7].print()<<endl;
-cout<<"2  ";
-cout<<echectab[1][0].print()<<echectab[1][1].print()<<echectab[1][2].print()<<echectab[1][3].print();
-cout<<echectab[1][4].print()<<echectab[1][5].print()<<echectab[1][6].print()<<echectab[1][7].print()<<endl;
-cout<<"3  ";
-cout<<echectab[2][0].print()<<echectab[2][1].print()<<echectab[2][2].print()<<echectab[2][3].print();
-cout<<echectab[2][4].print()<<echectab[2][5].print()<<echectab[2][6].print()<<echectab[2][7].print()<<endl;
-cout<<"4  ";
-cout<<echectab[3][0].print()<<echectab[3][1].print()<<echectab[3][2].print()<<echectab[3][3].print();
-cout<<echectab[3][4].print()<<echectab[3][5].print()<<echectab[3][6].print()<<echectab[3][7].print()<<endl;
-cout<<"5  ";
-cout<<echectab[4][0].print()<<echectab[4][1].print()<<echectab[4][2].print()<<echectab[4][3].print();
-cout<<echectab[4][4].print()<<echectab[4][5].print()<<echectab[4][6].print()<<echectab[4][7].print()<<endl;
-cout<<"6  ";
-cout<<echectab[5][0].print()<<echectab[5][1].print()<<echectab[5][2].print()<<echectab[5][3].print();
-cout<<echectab[5][4].print()<<echectab[5][5].print()<<echectab[5][6].print()<<echectab[5][7].print()<<endl;
-cout<<"7  ";
-cout<<echectab[6][0].print()<<echectab[6][1].print()<<echectab[6][2].print()<<echectab[6][3].print();
-cout<<echectab[6][4].print()<<echectab[6][5].print()<<echectab[6][6].print()<<echectab[6][7].print()<<endl;
-cout<<"8  ";
-cout<<echectab[7][0].print()<<echectab[7][1].print()<<echectab[7][2].print()<<echectab[7][3].print();
-cout<<echectab[7][4].print()<<echectab[7][5].print()<<echectab[7][6].print()<<echectab[7][7].print()<<endl;
-cout<<endl;
+    char echec_tab_indicel[8];
+    char echec_tab_indicec[8];
+    echec_tab_indicel[0]='8';
+    echec_tab_indicel[1]='7';
+    echec_tab_indicel[2]='6';
+    echec_tab_indicel[3]='5';
+    echec_tab_indicel[4]='4';
+    echec_tab_indicel[5]='3';
+    echec_tab_indicel[6]='2';
+    echec_tab_indicel[7]='1';
+
+    echec_tab_indicec[0]='A';
+    echec_tab_indicec[1]='B';
+    echec_tab_indicec[2]='C';
+    echec_tab_indicec[3]='D';
+    echec_tab_indicec[4]='E';
+    echec_tab_indicec[5]='F';
+    echec_tab_indicec[6]='G';
+    echec_tab_indicec[7]='H';
+
+    for(int k=0;k<dim;k++)
+    {
+        cout<<echec_tab_indicec[k]<<"  ";//3espaces, 2 pour les lettres +1
+    }
+    for (int i=0; i<dim; i++)
+    {
+        cout<<endl;
+        for (int j=0; j<dim; j++)
+        {
+            echectab[i][j].print();
+        }
+        cout<<echec_tab_indicel[i];
+    }
+
+    /*cout<<"    ";//4 espaces
+     for(int i=0;i<dim;i++)
+     {
+     cout<<echec_tab_indicec[i]<<" ";
+
+     for(int j=0;j<8;j++)
+     {
+     Piece P;
+     P=echectab[i][j];
+     P.print();
+     }
+     cout<<echec_tab_indicec[i]<<endl;
+     }
+     */
+    /*for(int k=0;k<dim;k++)
+     {
+     cout<<"  ";
+     cout<<echec_tab_indicel[k]<<"  ";
+     cout<<endl;
+     }
+     cout<<"    ";//4 espaces
+     for(int i=0;i<dim;i++)
+     {
+     cout<<echec_tab_indicec[i]<<" ";
+
+     for(int j=0;j<8;j++)
+     {
+     Piece P;
+     P=echectab[i][j];
+     P.print();
+     }
+     cout<<echec_tab_indicec[i]<<endl;
+     }
+     */
+
+
+
 }
 
 echiquier::echiquier(const echiquier & Echec) //constructeur par copie
 {
-    piece echectab[8][8];
-    for(int i=0;i<8;i++)
+    dim=Echec.dim;
+    echectab=new piece*[dim];
+    for(int i=0;i<dim;i++)
     {
-        for(int j=0;j<8;j++) {echectab[i][j]=Echec.echectab[i][j];}
+        for(int j=0;j<dim;j++) {echectab[i][j]=Echec.echectab[i][j];}
     }
 
 }
 echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
 {
-    piece echectab[8][8];
-     for(int i=0;i<8;i++)
+    dim=Echec.dim;
+    echectab=NULL;
+    if(dim<=0)
+    return *this;
+    echectab=new piece*[dim];
+     for(int i=0;i<dim;i++)
     {
-        for(int j=0;j<8;j++)
+        for(int j=0;j<dim;j++)
         echectab[i][j]=Echec.echectab[i][j];
     }
     return *this;
