@@ -29,7 +29,7 @@ echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier
     return E;
 }
 
-int position_echecs::getvaleur(position_echecs pos, int alpha, int beta)// la fonction qui renvoie la valeur d'une position
+int position_echecs::getvaleur(position_echecs pos, int a, int b)// la fonction qui renvoie la valeur d'une position
 {
     int val_piece_ordinateur=0;
     int cont_ordinateur=0;
@@ -60,7 +60,7 @@ int position_echecs::getvaleur(position_echecs pos, int alpha, int beta)// la fo
             }
         }
     }
-    return alpha*(val_piece_ordinateur-val_piece_humain)+beta*(cont_ordinateur-cont_humain);
+    return a*(val_piece_ordinateur-val_piece_humain)+b*(cont_ordinateur-cont_humain);
 }
 
 
