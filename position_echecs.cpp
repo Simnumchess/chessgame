@@ -4,7 +4,7 @@
 #include "coup.h"
 #include <ostream>
 #include <iostream>
-
+#include <vector>
 using namespace std;
 
 position_echecs::position_echecs() //constructeur de la position initiale
@@ -19,8 +19,7 @@ position_echecs::~position_echecs()// destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-
-echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier de reference apres les coups joués
+echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier de reference apres les coups jouees
 {
     echiquier E=pos.echiquier_ref;
     coup cp=pos.coup_joue;
@@ -29,7 +28,28 @@ echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier
     return E;
 }
 
-int position_echecs::getvaleur(position_echecs pos, int a, int b)// la fonction qui renvoie la valeur d'une position
+
+bool position_echecs::fin_partie(position_echecs p) //tester si c'est la fin d'une partie
+{
+    int n=0;
+    echiquier E=p.echiquier_ref;
+    for (int i=0;i<8;i++)
+    {
+        for (int j=0;j<8;j++)
+        {
+            if (E.echectab[i][j].type_piece==Roi)
+            {
+                n++;
+            }
+        }
+    }
+    if (n==1)
+    return true;
+    else return false;
+}
+
+
+double position_echecs::getvaleur(position_echecs pos)// la fonction qui renvoie la valeur d'une position
 {
     int val_piece_ordinateur=0;
     int cont_ordinateur=0;
@@ -50,7 +70,7 @@ int position_echecs::getvaleur(position_echecs pos, int a, int b)// la fonction 
                 if (E.echectab[c][l].type_piece!=Piecevide) {
                     cont_ordinateur++;
                 }
-                else if(E.echectab[c][l].color==noir)
+                else if(E.echectab[c][l].color==blanc)
                 {
                     val_piece_humain+=E.echectab[c][l].getvaleurpiece();
                     if (E.echectab[c][l].type_piece!=Piecevide) {
@@ -60,11 +80,9 @@ int position_echecs::getvaleur(position_echecs pos, int a, int b)// la fonction 
             }
         }
     }
-    return a*(val_piece_ordinateur-val_piece_humain)+b*(cont_ordinateur-cont_humain);
+    return alpha*(val_piece_ordinateur-val_piece_humain)+beta*(cont_ordinateur-cont_humain);
 }
-
-
-position_echecs* position_echecs::get_pos_suiv(position_echecs &p)
+int position_echecs::nbcoup(position_echecs p)
 {
     echiquier E=p.echiquier_ref;
     coup cp=p.coup_joue;
@@ -74,9 +92,17 @@ position_echecs* position_echecs::get_pos_suiv(position_echecs &p)
             nbcoup++;
         }
     }
+    return nbcoup;
+}
+
+position_echecs* position_echecs::get_pos_suiv(position_echecs &p)
+{
+    echiquier E=p.echiquier_ref;
+    coup cp=p.coup_joue;
+  
     position_echecs* p_current = & p;
     p.pos_fille = &p;
-    for(int i=0;i<nbcoup;i++)
+    for(int i=0;i<nbcoup(p);i++)
     {
         
         p.pos_fille->echiquier_ref=maj(p);
@@ -87,8 +113,6 @@ position_echecs* position_echecs::get_pos_suiv(position_echecs &p)
     }
     return  p.pos_fille;
 }
-
-
 position_echecs & position_echecs::operator=(const position_echecs & p) //operateur = pour une position_echec
 {
     if(this==&p)
@@ -110,15 +134,15 @@ position_echecs::position_echecs(const position_echecs & p) //operateur par copi
     pos_soeur=p.pos_soeur;
 }
 
-void position_echecs::IA(position_echecs & p)
+ void position_echecs::IA(position_echecs &p)
 {
     int l1,c1,l2,c2=0;
-    cout<<"Choisissez la piece :"<<endl;
+    cout<<"Choisissez la piece..."<<endl;
     cout<<"ligne=?"<<endl;
     cin>>l1;
     cout<<"colone=?";
     cin>>c1;
-    cout<<"Choisissez la case où vous voulez aller :"<<endl;
+    cout<<"Choisissez la case que vous voulez aller a"<<endl;
     cout<<"ligne=?"<<endl;
     cin>>l2;
     cout<<"colone=?"<<endl;
@@ -131,7 +155,7 @@ void position_echecs::IA(position_echecs & p)
         
     if(cp.coup_possible(echiquier_ref)==false)
     {
-        cout<<"Coup interdit. Il faut choisir un autre coup..."<<endl;
+        cout<<"coup pas possible"<<endl;
         IA(p);
     }
     else
