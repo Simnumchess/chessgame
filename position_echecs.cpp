@@ -19,20 +19,20 @@ position_echecs::~position_echecs()// destructeur de toutes les positions filles
     delete []pos_fille;
     delete []pos_soeur;
 }
-echiquier position_echecs::maj(position_echecs pos) //mise a jour de l'echiquier de reference apres les coups jouees
+echiquier position_echecs::maj() //mise a jour de l'echiquier de reference apres les coups jouees
 {
-    echiquier E=pos.echiquier_ref;
-    coup cp=pos.coup_joue;
+    echiquier E=echiquier_ref;
+    coup cp=coup_joue;
     E.echectab[cp.colonne_final][cp.ligne_final]=cp.piece_jouee;
     E.echectab[cp.colonne_init][cp.ligne_init]=piece();
     return E;
 }
 
 
-bool position_echecs::fin_partie(position_echecs p) //tester si c'est la fin d'une partie
+bool position_echecs::fin_partie() //tester si c'est la fin d'une partie
 {
     int n=0;
-    echiquier E=p.echiquier_ref;
+    echiquier E=echiquier_ref;
     for (int i=0;i<8;i++)
     {
         for (int j=0;j<8;j++)
@@ -82,10 +82,10 @@ double position_echecs::getvaleur(position_echecs pos)// la fonction qui renvoie
     }
     return alpha*(val_piece_ordinateur-val_piece_humain)+beta*(cont_ordinateur-cont_humain);
 }
-int position_echecs::nbcoup(position_echecs p)
+int position_echecs::nbcoup()
 {
-    echiquier E=p.echiquier_ref;
-    coup cp=p.coup_joue;
+    echiquier E=echiquier_ref;
+    coup cp=coup_joue;
     int nbcoup=0;
     for (int i=0;i<100;i++) {
         if (cp.coup_possible(E)==true) {
@@ -134,7 +134,7 @@ position_echecs::position_echecs(const position_echecs & p) //operateur par copi
     pos_soeur=p.pos_soeur;
 }
 
- void position_echecs::IA(position_echecs &p)
+ void position_echecs::IA()
 {
     int l1,c1,l2,c2=0;
     cout<<"Choisissez la piece..."<<endl;
@@ -156,12 +156,12 @@ position_echecs::position_echecs(const position_echecs & p) //operateur par copi
     if(cp.coup_possible(echiquier_ref)==false)
     {
         cout<<"coup pas possible"<<endl;
-        IA(p);
+        IA();
     }
     else
     {
-        p.coup_joue=cp;
-        p.echiquier_ref=maj(p);
+        coup_joue=cp;
+        echiquier_ref=maj(p);
     }
-    p.echiquier_ref.print();
+    echiquier_ref.print();
 }
