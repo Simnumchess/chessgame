@@ -11,8 +11,6 @@ class position_echecs
     coup coup_joue; //
     echiquier echiquier_ref; //definition d'un echiquier de reference(le dernier etat connu de l'echiquier)
     int nbcoup();
-    // coup* coup_historique; //memorisation de l'historique des coups joues
-    // coup annul_coup(); //annulation d'un coup??
     position_echecs* pos_soeur; //un pointeur sur la position soeur
     position_echecs* pos_fille; //un pointeur sur la premiere position fille
     Joueur Jeu_pos; //un indicateur sur le joueur qui doit jouer cette position: {humain;ordinateur}
