@@ -1,8 +1,11 @@
-
+#include <iostream>
+#include <string>
+#include <stdio.h>
+#include <stdlib.h>
 #include "minmax_ab.h"
 #include "position_echecs.h"
+#include "echiquier.h"
 
-//il faut prendre alpha=-1000 et beta=1000
 
 // variante alpha beta
 
@@ -41,11 +44,11 @@
 fin
 */
 
-int algo_minmax (int position_echecs &P, int profondeur){
+int algo_minmax(int position_echecs &P, int profondeur){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
     position_echecs *F=P.get_pos_suiv();
-   int a=F[0].nbcoup();
+   int a=F.nbcoup();
    cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
    int max=-1000;
    int indice_position_fille=0;
@@ -66,7 +69,9 @@ int algo_minmax (int position_echecs &P, int profondeur){
 
 
 int minmax_ab(position_echecs &P, int profondeur){
-
+    
+    alpha = -1000;
+    beta=1000;
 cout<<"variante alpha beta"<<endl;
 
 if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
@@ -86,7 +91,7 @@ int a=F[0].nbcoup();
 else if(P.getJoueur()==ordinateur)
 { 
   max=-1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
       max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta))
       if (max>=beta) return max; //coupure beta
@@ -96,7 +101,7 @@ else if(P.getJoueur()==ordinateur)
 else if (P.getJoueur()==humain)
 {
    min=1000;
-  for(i=0;i<a;i++)// on parcourt les positions filles
+  for(int i=0;i<a;i++)// on parcourt les positions filles
   {
       min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
       if (min<=alpha) return min; //coupure alpha
