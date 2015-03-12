@@ -5,17 +5,18 @@
 //#include "minmax.h"
 #include "echiquier.h"
 #include "piece.h"
-//#include "ttt.h"
+#include "ttt.h"
 //#include "position.h"
-//#include "position_ttt.h"
-//#include "position_echecs.h"
-//#include "minmax_ttt.h"
-//#include "definition.h"
+#include "position_ttt.h"
+#include "position_echecs.h"
+#include "minmax_ttt.h"
+#include "definition.h"
 
 using namespace std;
 
 int main()
 {
+/*
     echiquier e;
     e.print();
     cout<<endl;
@@ -24,6 +25,22 @@ int main()
     cout<<P.getvaleurpiece();
     cout<<endl;
     return 0;
+ */
+    cout<<"Bienvenue dans notre jeu d'échecs !"<<endl;
+    cout<<endl;
+
+    
+    position_ttt P;
+    P.ttt_ref.print();
+    P.IA();//demande au joueur de jouer puis met à jour P
+
+    //algo_minmax(P,4);
+    
+    return 0;
+    
+    
+    
+    
 }
 
 /*
