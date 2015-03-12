@@ -8,21 +8,16 @@ using namespace std;
 
 echiquier::echiquier() //initialisation
 {
-    dim=8; //la dimension d'un echiquier
-    echectab=new piece*[dim];
-    for(int i=0;i<dim;i++)
+    for(int k=0;k<8;k++)
     {
-        echectab[i]=new piece[dim];
+        for(int j=0;j<8;j++)
         {
-            for(int j=0;j<dim;j++)
-            {
-                piece PV;
-                PV.type_piece=Piecevide;
-                echectab[i][j]=PV;
-            }
+            piece PV;
+            PV.type_piece=Piecevide;
+            echectab[k][j]=PV;
         }
     }
-    for(int i=0;i<dim;i++)
+    for(int i=0;i<8;i++)
     {
         piece Pb;
         Pb.type_piece=Pion;
@@ -92,122 +87,77 @@ echiquier::echiquier() //initialisation
     }
 
 }
-echiquier::~echiquier()
+
+ /*
+  echiquier::~echiquier()
 {
     if(echectab!=NULL)
     {
-        for(int i=0;i<dim;i++)
+        for(int i=0;i<8;i++)
         {
-            delete []echectab[i];
+            for(int j=0;j<8;j++)
+            {
+            delete []echectab[i][j];
+            }
+        delete []echectab[i];
         }
-        delete []echectab;
     }
 }
+
+*/
+
+echiquier::~echiquier()
+{
+}
+
 void echiquier::print()
 {
-    char echec_tab_indicel[8];
-    char echec_tab_indicec[8];
-    echec_tab_indicel[0]='8';
-    echec_tab_indicel[1]='7';
-    echec_tab_indicel[2]='6';
-    echec_tab_indicel[3]='5';
-    echec_tab_indicel[4]='4';
-    echec_tab_indicel[5]='3';
-    echec_tab_indicel[6]='2';
-    echec_tab_indicel[7]='1';
+    cout<<"A  B  C  D  E  F  G  H";
 
-    echec_tab_indicec[0]='A';
-    echec_tab_indicec[1]='B';
-    echec_tab_indicec[2]='C';
-    echec_tab_indicec[3]='D';
-    echec_tab_indicec[4]='E';
-    echec_tab_indicec[5]='F';
-    echec_tab_indicec[6]='G';
-    echec_tab_indicec[7]='H';
-
-    for(int k=0;k<dim;k++)
-    {
-        cout<<echec_tab_indicec[k]<<"  ";//3espaces, 2 pour les lettres +1
-    }
-    for (int i=0; i<dim; i++)
+    for (int i=0; i<8; i++)
     {
         cout<<endl;
-        for (int j=0; j<dim; j++)
+        for (int j=0; j<8; j++)
         {
             echectab[i][j].print();
         }
-        cout<<echec_tab_indicel[i];
+        cout<<i+1;
     }
-
-    /*cout<<"    ";//4 espaces
-     for(int i=0;i<dim;i++)
-     {
-     cout<<echec_tab_indicec[i]<<" ";
-
-     for(int j=0;j<8;j++)
-     {
-     Piece P;
-     P=echectab[i][j];
-     P.print();
-     }
-     cout<<echec_tab_indicec[i]<<endl;
-     }
-     */
-    /*for(int k=0;k<dim;k++)
-     {
-     cout<<"  ";
-     cout<<echec_tab_indicel[k]<<"  ";
-     cout<<endl;
-     }
-     cout<<"    ";//4 espaces
-     for(int i=0;i<dim;i++)
-     {
-     cout<<echec_tab_indicec[i]<<" ";
-
-     for(int j=0;j<8;j++)
-     {
-     Piece P;
-     P=echectab[i][j];
-     P.print();
-     }
-     cout<<echec_tab_indicec[i]<<endl;
-     }
-     */
-
-
-
+    cout<<endl<<endl;
+    
 }
+    
 
-echiquier::echiquier(const echiquier & Echec) //constructeur par copie
+
+ echiquier::echiquier(const echiquier & Echec) //constructeur par copie
 {
-    dim=Echec.dim;
-    echectab=new piece*[dim];
-    for(int i=0;i<dim;i++)
+    piece echectab[8][8];
+    for(int i=0;i<8;i++)
     {
-        for(int j=0;j<dim;j++) {echectab[i][j]=Echec.echectab[i][j];}
+        for(int j=0;j<8;j++) {echectab[i][j]=Echec.echectab[i][j];}
     }
 
 }
-echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
+ 
+
+
+ echiquier & echiquier::operator=(const echiquier & Echec) //operator par copie
 {
-    dim=Echec.dim;
-    echectab=NULL;
-    if(dim<=0)
-    return *this;
-    echectab=new piece*[dim];
-     for(int i=0;i<dim;i++)
+    piece echectab[8][8];
+     for(int i=0;i<8;i++)
     {
-        for(int j=0;j<dim;j++)
+        for(int j=0;j<8;j++)
         echectab[i][j]=Echec.echectab[i][j];
     }
     return *this;
+}
+ 
 
-}
 bool echiquier::casevide(int l,int c)
-{
-    if(echectab[l][c].type_piece==Piecevide)
-    return true;
-    else
-    return false;
-}
+    {
+        if(echectab[l][c].type_piece==Piecevide)
+            return true;
+        else
+            return false;
+    }
 
