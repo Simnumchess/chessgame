@@ -41,11 +41,11 @@
 fin
 */
 
-int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
+int algo_minmax (int position_echecs &P, int profondeur){
    
    //On génere les positions filles (positions que peut jouer l'ordinateur)
-   position_echecs *F=P.getPositionFille()
-   int a=F[0].nbfilles;
+    position_echecs *F=P.get_pos_suiv();
+   int a=F[0].nbcoup();
    cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
    int max=-1000;
    int indice_position_fille=0;
@@ -65,7 +65,7 @@ int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
 
 
 
-int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta){
+int minmax_ab(position_echecs &P, int profondeur){
 
 cout<<"variante alpha beta"<<endl;
 
@@ -74,16 +74,16 @@ if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 if (alpha>beta) {cout<<"alpha doit être inférieur à beta"<<endl;}
 
 
-if (profondeur==0) return P.val_pos;
+if (profondeur==0) return P.getvaleur();
 
 //On génere les positions filles
-position_echecs *F=P.getPositionFille()
-int a=F[0].nbfilles;
+    position_echecs *F=P.get_pos_suiv();
+int a=F[0].nbcoup();
 
 
-if (P.getJoueur==fin_partie) return P.val_pos;
+    if (P.fin_partie==true) return P.getvaleur();
 
-else if(P.getJoueur==ordinateur)
+else if(P.getJoueur()==ordinateur)
 { 
   max=-1000;
   for(i=0;i<a;i++)// on parcourt les positions filles
@@ -93,7 +93,7 @@ else if(P.getJoueur==ordinateur)
       else alpha=Max(alpha,max);
   }
 }
-else if (P.getJoueur==humain)
+else if (P.getJoueur()==humain)
 {
    min=1000;
   for(i=0;i<a;i++)// on parcourt les positions filles
