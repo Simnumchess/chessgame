@@ -76,9 +76,6 @@ cout<<"variante alpha beta"<<endl;
 
 if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 
-if (alpha>beta) {cout<<"alpha doit être inférieur à beta"<<endl;}
-
-
 if (profondeur==0) return P.getvaleur();
 
 //On génere les positions filles
