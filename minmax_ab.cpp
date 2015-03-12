@@ -1,16 +1,13 @@
-#include <iostream>
-#include <ostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
+
 #include "minmax_ab.h"
 #include "position_echecs.h"
 
 //il faut prendre alpha=-1000 et beta=1000
 
 // variante alpha beta
+
 /*
-consiste à stopper l'exploration d'une branche qd:
+ consiste à stopper l'exploration d'une branche qd:
 à un niveau correspondant à une phase de maximisation, on trouve une valeur inférieure à une valeur minmax du niveau précédent
 -----------------------------------------minimisation-----------------------supérieure--------------------------
 
@@ -44,19 +41,18 @@ consiste à stopper l'exploration d'une branche qd:
 fin
 */
 
-int algo_minmax (int position_echecs &P, int profondeur, int a, int b){
-   int alpha=-1000;
-   int beta=1000;
+int algo_minmax (int position_echecs &P, int profondeur, int alpha, int beta){
+   
    //On génere les positions filles (positions que peut jouer l'ordinateur)
-   position_echecs *F=P.get_pos_suiv()
-   int a=P.nbcoup();
+   position_echecs *F=P.getPositionFille()
+   int a=F[0].nbfilles;
    cout <<"nombre de possibilités pour l'ordinateur : "<<a<<endl;
    int max=-1000;
    int indice_position_fille=0;
 
 //C'est à l'ordinateur de jouer donc on prend le max des positions filles (positions que peut jouer l'ordinateur)
    for(int i=0; i<a;i++){
-         int val=minmax_ab(F[i],profondeur,alpha,beta,a,b);
+         int val=minmax_ab(F[i],profondeur,alpha,beta);
          if(val>max){
             max=val;
             indice_position_fille=i;
@@ -69,7 +65,7 @@ int algo_minmax (int position_echecs &P, int profondeur, int a, int b){
 
 
 
-int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta, a, b){
+int minmax_ab(position_echecs &P, int profondeur, int alpha, int beta){
 
 cout<<"variante alpha beta"<<endl;
 
@@ -78,31 +74,31 @@ if(profondeur<0) {cout<<"probleme avec la profondeur"<<endl;}
 if (alpha>beta) {cout<<"alpha doit être inférieur à beta"<<endl;}
 
 
-if (profondeur==0) return P.val_pos(a,b);
+if (profondeur==0) return P.val_pos;
 
 //On génere les positions filles
-position_echecs *F=P.get_pos_suiv()
-int a=P.nbcoup();
+position_echecs *F=P.getPositionFille()
+int a=F[0].nbfilles;
 
 
-if (P.fin_partie()) return P.val_pos(a,b);
+if (P.getJoueur==fin_partie) return P.val_pos;
 
 else if(P.getJoueur==ordinateur)
 { 
-  int max=-1000;
-  for(int i=0;i<a;i++)// on parcourt les positions filles
+  max=-1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
   {
-      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta, a,b));
+      max=Max(max,minmax_ab(F[i], profondeur-1, alpha, beta))
       if (max>=beta) return max; //coupure beta
       else alpha=Max(alpha,max);
   }
 }
 else if (P.getJoueur==humain)
 {
-   int min=1000;
-  for(int i=0;i<a;i++)// on parcourt les positions filles
+   min=1000;
+  for(i=0;i<a;i++)// on parcourt les positions filles
   {
-      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta, a, b));
+      min=Min(min,minmax_ab(F[i], profondeur-1, alpha, beta))
       if (min<=alpha) return min; //coupure alpha
       else beta=Min(beta,min);
   }
