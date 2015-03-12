@@ -88,7 +88,7 @@ int a=F[0].nbcoup();
 
     if (P.fin_partie==true) return P.getvaleur();
 
-else if(P.getJoueur()==ordinateur)
+else if(P.jeu_pos==ordinateur)
 { 
   max=-1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
@@ -98,7 +98,7 @@ else if(P.getJoueur()==ordinateur)
       else alpha=Max(alpha,max);
   }
 }
-else if (P.getJoueur()==humain)
+else if (P.jeu_pos==humain)
 {
    min=1000;
   for(int i=0;i<a;i++)// on parcourt les positions filles
