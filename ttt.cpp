@@ -1,3 +1,4 @@
+
 #include "ttt.h"
 #include "piece.h"
 #include "definition.h"
@@ -6,45 +7,50 @@
 #include <string>
 
 
+
 ttt::ttt() //initialisation
 {
-    char ttttab[3][3];
-    for(int i=0;i<3;i++)
-    {
-        ttttab[i]=new char[3];
-        {
-            for(int j=0;j<3;j++)
-            ttttab[i][j]=' ';
-        }
-    }
+    ttttab[0]='0';
+    ttttab[1]='1';
+    ttttab[2]='2';
+    ttttab[3]='3';
+    ttttab[4]='4';
+    ttttab[5]='5';
+    ttttab[6]='6';
+    ttttab[7]='7';
+    ttttab[8]='8';
+    ttttab[9]='9';
+
+    
 }
 
 
 ttt::~ttt()
 {
-    if(ttttab!=NULL)
-    for(int i=0:i<3;i++)
-    {
-        delete []ttttab[i];
-        delete []ttttab;
-    }
 }
 
 
 void ttt::print()
 {
-    cout<<endl;
-    cout<<"   A   B   C"<<endl;
+    cout << "\n\n\tTic Tac Toe\n\n";
     
-    cout<<"1  "<<ttttab[0][0]<<" | "<<ttttab[0][1]<<" | "<<ttttab[0][2]<<endl;
-    cout<<"   ---------"<<endl;
+    cout << "Humain (X)  -  Ordinateur (O)" << endl << endl;
+    cout << endl;
     
-    cout<<"2  "<<ttttab[1][0]<<" | "<<ttttab[1][1]<<" | "<<ttttab[1][2]<<endl;
-    cout<<"   ---------"<<endl;
+    cout << "     |     |     " << endl;
+    cout << "  " << ttttab[1] << "  |  " << ttttab[2] << "  |  " << ttttab[3] << endl;
     
-    cout<<"3  "<<ttttab[2][0]<<" | "<<ttttab[2][1]<<" | "<<ttttab[2][2]<<endl;
-    cout<<endl;
+    cout << "_____|_____|_____" << endl;
+    cout << "     |     |     " << endl;
     
+    cout << "  " << ttttab[4] << "  |  " << ttttab[5] << "  |  " << ttttab[6] << endl;
+    
+    cout << "_____|_____|_____" << endl;
+    cout << "     |     |     " << endl;
+    
+    cout << "  " << ttttab[7] << "  |  " << ttttab[8] << "  |  " << ttttab[9] << endl;
+    
+    cout << "     |     |     " << endl << endl;
 }
 
 
@@ -52,115 +58,42 @@ void ttt::print()
 
 ttt::ttt(const ttt & TTT) //constructeur par copie
 {
-    dim=TTT.dim;
-    char ttttab[3][3];
-    for(int i=0;i<dim;i++)
+    char ttttab[10];
+    for(int i=0;i<10;i++)
     {
-        for(int j=0;j<dim;j++)
-        ttttab[i][j]=TTT.ttttab[i][j];
+        ttttab[i]=TTT.ttttab[i];
     }
 }
 
 
-ttt::ttt & operator=(const ttt & TTT) //operator par copie
+
+
+ttt &ttt::operator=(const ttt & TTT) //operator par copie
 {
-    char ttttab[3][3];
-    for(int i=0;i<3;i++)
+    char ttttab[10];
+    for(int i=1;i<10;i++)
     {
-        for(int j=0;j<3;j++)
-        ttttab[i][j]=TTT.ttttab[i][j];
+        ttttab[i]=TTT.ttttab[i];
     }
     return *this;
 }
 
 
-bool ttt::casevide(int l,int c)
+bool ttt::casevide(int i)
 {
-    if(ttttab[l][c]==" ")
-    return 1;
-    else
-    return 0;
+    if(ttttab[i]=='X') return false;
+    else if (ttttab[i]=='O') return false;
+    else return true;
 }
+
 
 int ttt::nb_casesvides(){
     int nb=0;
-    for (int i=0;i<3;i++){
-        for (int j=0;j<3;j++){
-            if(casevide(i,j)==1)
+    for (int i=1;i<10;i++){
+        if(casevide(i)==1)
             nb=nb+1;
-        }
     }
     return nb;
 }
 
-int ttt::fin_partie()
-{
-    
-    if (nb_casesvides==0)
-    {
-    
-    cout<<"Fin de la partie !"<<endl;
 
-   if(ttttab[0][0]==ttttab[0][1]) {
-       if(ttttab[0][1]==ttttab[0][2])
-       cout<<ttttab[0][0]<<" a gagné !"<<endl;
-   }
-   
-   if(ttttab[1][0]==ttttab[1][1]) {
-       if(ttttab[1][1]==ttttab[1][2])
-       cout<<ttttab[1][0]<<" a gagné !"<<endl;
-       
-   }    
-   
-   if(ttttab[2][0]==ttttab[2][1]) {
-       if(ttttab[2][1]==ttttab[2][2])
-       cout<<ttttab[2][0]<<" a gagné !"<<endl;
-       
-   }
-    
-   if(ttttab[0][0]==ttttab[1][0]) {
-       if(ttttab[1][0]==ttttab[2][0])
-       cout<<ttttab[0][0]<<" a gagné !"<<endl;
-       
-   }
-   
-   if(ttttab[0][1]==ttttab[1][1]) {
-       if(ttttab[1][1]==ttttab[2][1])
-       cout<<ttttab[0][1]<<" a gagné !"<<endl;
-       
-   }
-
-   if(ttttab[0][2]==ttttab[1][2]) {
-       if(ttttab[1][2]==ttttab[2][2])
-       cout<<ttttab[0][1]<<" a gagné !"<<endl;
-       
-   }
-    
-   if(ttttab[0][0]==ttttab[1][1]) {
-       if(ttttab[1][1]==ttttab[2][2])
-       cout<<ttttab[0][0]<<" a gagné !"<<endl;
-       
-   }
-
-   if(ttttab[0][2]==ttttab[1][1]) {
-       if(ttttab[1][1]==ttttab[2][0])
-       cout<<ttttab[0][2]<<" a gagné !"<<endl;
-       
-   }
-   
-   else cout<<"Match nul...Retente ta chance !"<<endl;
-   
-   return 1;
-  
-   }
-   
- else return 0;
-   
-}
-
-
-string ttt::getJoueur(){
-    int nb=nb_casesvides();
-    if (nb==9||nb==7==||nb==5||nb==3||nb=1) return "humain";
-    else return "ordinateur";
-}
